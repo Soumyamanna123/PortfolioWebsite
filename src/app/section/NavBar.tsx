@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import MaxWidthWrapper from "../components/MaxWidthWrapper";
 import { withMagnet } from "../components/WithMagent";
 import Link from "next/link";
+import { navLinks } from "../constant/data";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,13 +42,14 @@ const NavBar = () => {
 
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex space-x-12">
-              {["Home", "About", "Services", "Contact"].map((item) => (
+              {navLinks.map((link) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-white/60 font-sans hover:text-white transition-colors duration-200"
+                  key={link.name}
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="block text-white/60 hover:text-white py-6 hover:bg-gray-700 rounded-md transition-all duration-200"
                 >
-                  {item}
+                  {link.name}
                 </a>
               ))}
             </div>
@@ -104,14 +106,14 @@ const NavBar = () => {
               isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
             }`}
           >
-            {["Home", "About", "Services", "Contact"].map((item) => (
+            {navLinks.map((link) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                onClick={closeMenu} // Close menu on click
+                key={link.name}
+                href={link.href}
+                onClick={closeMenu}
                 className="block text-white/60 hover:text-white py-6 hover:bg-gray-700 rounded-md transition-all duration-200"
               >
-                {item}
+                {link.name}
               </a>
             ))}
           </div>
