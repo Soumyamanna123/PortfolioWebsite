@@ -19,7 +19,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-6" id="experience">
       {experiences.map((exp, index) => (
         <div
           key={index}
@@ -62,6 +62,7 @@ const Experience = () => {
               </div>
             </div>
           </div>
+          
         </div>
       ))}
     </div>

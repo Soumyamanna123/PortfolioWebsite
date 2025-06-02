@@ -7,11 +7,11 @@ const SkillsSection = () => {
   return (
     <MaxWidthWrapper>
       <section className="py-16">
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <div className="w-24 h-[2px] bg-[linear-gradient(to_left,white_20%,transparent_100%)]"></div>
-          <h2 className="text-3xl font-semibold font-sans py-10 text-center">
+        <div className="flex items-center justify-left gap-4 mb-6">
+          {/* <div className="w-24 h-[2px] bg-[linear-gradient(to_left,white_20%,transparent_100%)]"></div> */}
+          <h2 className="text-xl font-semibold font-sans  text-left">
             My Experience{" "}
-            <span className="text-white/60 [font-family:var(--font-carattere)]">
+            <span className="text-[#C9E651] font-normal [font-family:var(--font-carattere)]">
               & Skills
             </span>
           </h2>

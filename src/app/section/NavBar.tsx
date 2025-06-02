@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MaxWidthWrapper from "../components/MaxWidthWrapper";
 import { withMagnet } from "../components/WithMagent";
 import Link from "next/link";
@@ -9,101 +9,88 @@ import { navLinks } from "../constant/data";
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const closeMenu = () => setIsMenuOpen(false);
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+  }, [isMenuOpen]);
 
   const MagnetLogo = withMagnet(() => (
-    <span className="font-serif bg-gradient-to-t from-white/30 to-white/90 text-transparent bg-clip-text">
-      SM <span className="text-red-600">.</span>
+    <span className="font-serif text-3xl bg-gradient-to-t from-[#C9E651] to-white/90 text-transparent bg-clip-text">
+      SM <span className="text-[#C9E651]">.</span>
     </span>
   ));
 
   return (
     <>
-      {/* Background Blur Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 transition-opacity duration-300"></div>
+        <div
+          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
+          onClick={closeMenu}
+        />
       )}
 
-      <nav className="bg-black shadow-md sticky top-0 z-50 px-6 pt-6">
-        <MaxWidthWrapper>
-          <div className="mx-auto flex items-center justify-between">
-            {/* Logo with magnet effect */}
-            <div className="text-2xl font-bold">
-              <Link href="/">
-                <MagnetLogo />
-              </Link>
-            </div>
+      <nav className="fixed top-2 left-0 w-full z-50">
+        <MaxWidthWrapper className=" mx-auto px-4 md:px-6 bg-white/10 backdrop-blur-sm border border-[#C9E651]/30  md:rounded-full py-3">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className="text-2xl font-bold">
+              <MagnetLogo />
+            </Link>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden md:flex space-x-12">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex space-x-10">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={closeMenu}
-                  className="block text-white/60 hover:text-white py-6 hover:bg-gray-700 rounded-md transition-all duration-200"
+                  className="relative group text-white/60 hover:text-white transition-colors duration-200"
                 >
                   {link.name}
+                  <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#C9E651] transition-all duration-300 group-hover:w-full" />
                 </a>
               ))}
             </div>
 
-            {/* Hamburger Icon for Mobile */}
+            {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
-                className="text-white flex items-center justify-center w-10 h-10"
+                className="text-[#C9E651] w-10 h-10 flex items-center justify-center"
               >
                 {isMenuOpen ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 24 24"
+                    fill="none"
                     stroke="currentColor"
+                    strokeWidth={2}
                     className="h-6 w-6"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
+                    <path d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 ) : (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 24 24"
+                    fill="none"
                     stroke="currentColor"
+                    strokeWidth={2}
                     className="h-6 w-6"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
+                    <path d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
                 )}
               </button>
             </div>
           </div>
 
-          {/* Border Below Navigation Buttons */}
-          <div className="relative w-full h-px mt-4">
-            <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-          </div>
-
           {/* Mobile Menu */}
           <div
-            className={`absolute top-full left-0 w-full bg-black pb-4 px-10 transition-all duration-500 z-50 ${
-              isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+            className={`md:hidden transition-all duration-500 overflow-hidden ${
+              isMenuOpen ? "max-h-screen opacity-100 visible pt-4" : "max-h-0 opacity-0 invisible"
             }`}
           >
             {navLinks.map((link) => (
@@ -111,7 +98,7 @@ const NavBar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={closeMenu}
-                className="block text-white/60 hover:text-white py-6 hover:bg-gray-700 rounded-md transition-all duration-200"
+                className="block py-4 text-white/60 hover:text-white border-t border-white/10"
               >
                 {link.name}
               </a>

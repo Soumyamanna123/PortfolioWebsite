@@ -19,7 +19,7 @@ export default function ProjectsSection({ maxItems }: ProjectsSectionProps) {
           <div className="w-24 h-[2px] bg-[linear-gradient(to_left,white_20%,transparent_100%)]"></div>
           <h2 className="text-3xl font-semibold font-sans py-10 text-center">
             Built with{" "}
-            <span className="bg-gradient-to-t from-[#0d0d0d] to-[#031457]/50 bg-clip-text text-transparent font-normal [font-family:var(--font-carattere)]">
+            <span className="text-[#C9E651] bg-clip-text  font-normal [font-family:var(--font-carattere)]">
               Passion & Code
             </span>
           </h2>

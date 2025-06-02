@@ -54,12 +54,12 @@ const FillButton = ({ label, href = "#", className = "" }) => {
     <a
       href={href}
       ref={buttonRef}
-      className={`relative inline-flex items-center justify-center px-6 py-3 font-semibold text-white border-2 border-white rounded-full cursor-pointer overflow-hidden transition-all duration-300 hover:text-black ${className}`}
+      className={`relative inline-flex items-center justify-center px-6 py-3  text-[#C9E651] border-1 border-[#C9E651] rounded-full cursor-pointer overflow-hidden transition-all duration-300 hover:text-black ${className}`}
     >
       {/* Animated background effect */}
       <span
         ref={flairRef}
-        className="absolute bg-white rounded-full"
+        className="absolute bg-[#C9E651] rounded-full"
         style={{ width: "0%", height: "0%", transform: "translate(-50%, -50%)" }}
       ></span>
 
