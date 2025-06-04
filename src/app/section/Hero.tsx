@@ -166,7 +166,7 @@ const Hero = () => {
                       </span>
                     ))}
                   </span>
-                  into <span className="text-[#C9E651]">Real Projects </span>that Deliver <span className="text-[#C9E651]"> Results </span>
+                  into <span className="text-[#C9E651] [font-family:var(--font-carattere)] italic">Real Projects { }</span>that Deliver {  }<span className="text-[#C9E651] [font-family:var(--font-carattere)] italic"> Results </span>
                 </p>
               </div>
 

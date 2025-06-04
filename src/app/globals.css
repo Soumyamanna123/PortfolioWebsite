@@ -75,7 +75,9 @@ body {
 .word-animate {
   animation: slideInWord 8s infinite;
 }
-
+/* .hover\:glow-green:hover {
+  box-shadow: 0 0 6px #c9e651, 0 0 10px #c9e651;
+} */
 @keyframes word-slide {
   0% {
     opacity: 0;

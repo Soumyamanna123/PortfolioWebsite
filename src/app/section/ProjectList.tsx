@@ -16,6 +16,7 @@ export default function ProjectsSection({ maxItems }: ProjectsSectionProps) {
     <div id="projects">
       <MaxWidthWrapper>
         <div className="flex items-center justify-center gap-4 mb-6">
+          <div></div>
           <div className="w-24 h-[2px] bg-[linear-gradient(to_left,white_20%,transparent_100%)]"></div>
           <h2 className="text-3xl font-semibold font-sans py-10 text-center">
             Built with{" "}

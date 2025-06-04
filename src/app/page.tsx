@@ -4,6 +4,7 @@ import Hero from "./section/Hero";
 import SkillsSection from "./section/MySkills";
 import NavBar from "./section/NavBar";
 import ProjectsSection from "./section/ProjectList";
+import Testimonials from "./section/Testimonials";
 
 export default function Home() {
   return (
@@ -13,7 +14,9 @@ export default function Home() {
       <About />
       <SkillsSection />
       <ProjectsSection />
+      <Testimonials/>
       <Footer />
+      
     </>
   );
 }
