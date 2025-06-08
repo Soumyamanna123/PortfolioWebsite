@@ -68,7 +68,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-16 bg-black text-white" id="footer" ref={footerRef}>
+    <footer className="pt-16 pb-8 bg-black text-white" id="footer" ref={footerRef}>
       <MaxWidthWrapper>
         {/* Freelance Banner */}
         <div className="flex flex-col md:flex-row justify-between py-10">

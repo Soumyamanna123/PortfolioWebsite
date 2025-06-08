@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Calistoga, Carattere } from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
+import AppWrapper from "./components/AppWrapper";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 

@@ -10,22 +10,22 @@ import ContactForm from "../components/ContactForm";
 
 const ContactPage = () => {
   return (
-    <div className=" py-16  lg:pt-32">
+    <div className=" pt-28  lg:pt-32">
       <MaxWidthWrapper>
         <div className="w-full flex flex-col md:flex-row gap-4 md:gap-8">
           <div className="md:w-1/2  md:sticky md:top-32 self-start">
-            <p className="text-5xl max-w-xl pb-6  xl:text-7xl text-[#C9E651] font-sans font-medium">
+            <p className="text-5xl text-center md:text-left max-w-xl pb-10  xl:text-7xl text-[#C9E651] font-sans font-medium">
               Let’s Get Acquainted
             </p>
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
+            <div className="flex flex-col md:flex-row items-center md:items-start md:gap-4 ">
               <Image
                 src="/images/soumya-manna.webp"
                 alt="Soumya Manna"
                 width={42}
                 height={42}
-                className="rounded-full object-cover h-16 w-16"
+                className="rounded-full object-cover h-16 w-16 "
               />
-              <div className="text-center md:text-left">
+              <div className="text-center md:text-left space-y-4 pt-4 md:pt-0">
                 <h2 className="text-3xl font-sans font-medium text-white">
                   Soumya Manna
                 </h2>

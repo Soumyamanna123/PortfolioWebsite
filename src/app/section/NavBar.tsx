@@ -30,27 +30,28 @@ const NavBar = () => {
           onClick={closeMenu}
         />
       )}
-
-      <nav className="fixed top-2 left-0 w-full z-50">
-        <MaxWidthWrapper className=" mx-auto px-4 md:px-6 bg-white/10 backdrop-blur-sm border border-[#C9E651]/30  md:rounded-full py-3">
+      <MaxWidthWrapper>
+      <nav className="fixed top-2 left-0 w-full  mx-auto z-50">
+        <div className="mx-auto px-4 md:px-6 bg-white/10 backdrop-blur-sm border-y md:border border-[#C9E651]/30 md:rounded-full py-3">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="text-2xl font-bold">
+            <Link href="/" onClick={closeMenu} className="text-2xl font-bold">
               <MagnetLogo />
             </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-10">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
+                  scroll={false}
                   onClick={closeMenu}
                   className="relative group text-white/60 hover:text-white transition-colors duration-200"
                 >
                   {link.name}
                   <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#C9E651] transition-all duration-300 group-hover:w-full" />
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -90,22 +91,26 @@ const NavBar = () => {
           {/* Mobile Menu */}
           <div
             className={`md:hidden transition-all duration-500 overflow-hidden ${
-              isMenuOpen ? "max-h-screen opacity-100 visible pt-4" : "max-h-0 opacity-0 invisible"
+              isMenuOpen
+                ? "max-h-screen opacity-100 visible pt-4"
+                : "max-h-0 opacity-0 invisible"
             }`}
           >
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
+                scroll={false}
                 onClick={closeMenu}
                 className="block py-4 text-white/60 hover:text-white border-t border-white/10"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
-        </MaxWidthWrapper>
+        </div>
       </nav>
+      </MaxWidthWrapper>
     </>
   );
 };
