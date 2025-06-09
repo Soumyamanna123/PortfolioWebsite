@@ -109,6 +109,44 @@ html {
   animation-iteration-count: infinite;
   position: absolute;
 }
+.card {
+  position: relative;
+  border-radius: 0.75rem; /* rounded-xl */
+  overflow: hidden; /* keep glow inside */
+  border: 0.5px solid transparent; /* base border */
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 0.75rem;
+  padding: 2px; /* thickness of the glow */
+  background: transparent; /* no glow by default */
+  z-index: 1;
+  filter: none;
+  -webkit-mask: none;
+  mask-composite: auto;
+  transition: background 0.3s ease, filter 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .card:hover::before {
+    background: conic-gradient(
+      from var(--start, 0deg),
+      #528400 0deg 90deg,
+      transparent 90deg 360deg
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    filter: drop-shadow(0 0 10px #C9E65188);
+  }
+}
+
 
 
 @keyframes wave {

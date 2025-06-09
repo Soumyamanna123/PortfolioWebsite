@@ -35,7 +35,7 @@ const About = () => {
     <section
       id="about"
       ref={sectionRef}
-      className={`bg-black py-16 transition-opacity duration-700 ease-in-out ${
+      className={`bg-black pt-16 md:py-16 transition-opacity duration-700 ease-in-out ${
         showSection ? "opacity-100" : "opacity-0"
       }`}
     >

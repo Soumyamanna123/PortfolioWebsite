@@ -79,13 +79,11 @@ const Hero = () => {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden pt-16">
-
-
       <div className="h-1/2 bg-black relative">
         <div className="absolute inset-0 overflow-hidden">
           <GlowingCircle
             size={600}
-            color="rgba(255, 255, 255, 0.15)"
+            color="rgba(35, 72, 0, 0.4)"
             blur={100}
             position="bottom"
             className="z-0 mix-blend-screen pointer-events-none"
@@ -132,18 +130,21 @@ const Hero = () => {
                 </p>
               </div>
 
-              <div className="text-sm text-white/60 text-center intro-name">
-                <h1 className="text-6xl md:text-7xl lg:text-8xl  py-2 text-white">
+              <div className="text-center intro-name">
+                <h1 className="text-6xl md:text-7xl lg:text-8xl py-2 text-white">
                   Soumya{" "}
-                  <span className="[font-family:var(--font-carattere)] italic text-[#C9E651]">
+                  <span className="[font-family:var(--font-carattere)] italic text-transparent bg-clip-text bg-gradient-to-r from-[#C9E651] to-[#0f172a]">
                     Manna
                   </span>
                 </h1>
               </div>
 
-              <div className="hero-text text-white font-sans text-center overflow-hidden pt-2 pb-6" >
+              <div className="hero-text text-white font-sans text-center overflow-hidden pt-2 pb-6">
                 <p className="text-xl md:text-3xl lg:text-4xl  flex items-center justify-center flex-wrap gap-2 whitespace-nowrap">
-                  <span className="[font-family:var(--font-carattere)] italic text-[#C9E651]">I ,&nbsp; { }</span>{ } Shape
+                  <span className="[font-family:var(--font-carattere)] italic text-[#C9E651]">
+                    I ,&nbsp; {}
+                  </span>
+                  {} Shape
                   <span className="relative  inline-flex items-center h-8 md:h-9 w-[130px] md:w-[180px] overflow-hidden">
                     {words.map((word, index) => (
                       <span
@@ -166,11 +167,19 @@ const Hero = () => {
                       </span>
                     ))}
                   </span>
-                  into <span className="text-[#C9E651] [font-family:var(--font-carattere)] italic">Real Projects { }</span>that Deliver {  }<span className="text-[#C9E651] [font-family:var(--font-carattere)] italic"> Results </span>
+                  into <span className="text-[#C9E651] ">Real Projects {}</span>
+                  that Deliver {}
+                  <span className="text-[#C9E651] "> Results </span>
                 </p>
               </div>
 
-              <div className="text-sm border rounded-full  py-2 w-fit px-4 text-white/60 flex items-center justify-center mx-auto availability">
+              <div
+                className="text-sm border border-[#528400]  rounded-full  py-2.5 w-fit px-4 text-white/60 flex items-center justify-center mx-auto availability"
+                style={{
+                  background:
+                    "linear-gradient(94deg, #080E15 0%, #2D4800 100%)",
+                }}
+              >
                 <a href="#footer">
                   {" "}
                   <div className="flex items-center gap-2">
@@ -178,7 +187,7 @@ const Hero = () => {
                       <span className="absolute inline-flex h-full w-full rounded-full bg-green-300 opacity-75 animate-ping duration-1000" />
                       <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-green-500" />
                     </div>
-                    <p className="text-xs text-white/70  tracking-wide leading-none">
+                    <p className="text-xs text-white/80  tracking-wide leading-none">
                       Available for work
                     </p>
                   </div>
@@ -186,8 +195,8 @@ const Hero = () => {
               </div>
 
               <div className="text-sm text-white/60 flex items-center justify-center mx-auto mt-10 scroll-indicator">
-                <div className="border border-white rounded-full animate-bounce p-2">
-                  <ChevronDown className="w-6 h-6 text-white" />
+                <div className="border border-white rounded-full animate-bounce p-1">
+                  <ChevronDown className="w-4 h-4 text-white" />
                 </div>
               </div>
             </div>

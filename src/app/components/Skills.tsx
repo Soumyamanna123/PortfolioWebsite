@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useRef } from "react";
 import Matter from "matter-js";
@@ -7,7 +7,9 @@ const Skills = () => {
   const sceneRef = useRef<HTMLDivElement>(null);
   const engine = useRef<Matter.Engine | null>(null);
   const renderRef = useRef<Matter.Render | null>(null);
-  const skillElementsRef = useRef<{ body: Matter.Body; div: HTMLDivElement }[]>([]);
+  const skillElementsRef = useRef<{ body: Matter.Body; div: HTMLDivElement }[]>(
+    []
+  );
   let walls: Matter.Body[] = [];
 
   const skills = {
@@ -195,8 +197,12 @@ const Skills = () => {
   return (
     <div
       ref={sceneRef}
-      className="relative w-full rounded-2xl overflow-hidden bg-[#0d0d0d]"
-      style={{ height: "450px", minHeight: "350px" }}
+      className="relative w-full rounded-2xl overflow-hidden "
+      style={{
+        height: "450px",
+        minHeight: "350px",
+        background: "linear-gradient(294deg, #080E15 0%, #2D4800 180%)",
+      }}
     >
       {/* Matter.js Canvas & Skills */}
     </div>
