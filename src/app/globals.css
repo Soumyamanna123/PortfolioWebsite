@@ -27,7 +27,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 } */
-
+html {
+  scroll-behavior: smooth;
+}
 .animate-wave {
   animation: wave 2s infinite;
   display: inline-block;
@@ -159,6 +161,27 @@ html {
   60% { transform: rotate(0deg); }
   100% { transform: rotate(0deg); }
 }
+
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+.scroll-animation {
+  display: flex;
+  gap: 2rem; /* your gap-8 equivalent */
+  animation: scrollLeft 20s linear infinite;
+}
+
+.scroll-animation:hover {
+  animation-play-state: paused;
+}
+
 :root {
 
   --radius: 0.625rem;

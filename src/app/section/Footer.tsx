@@ -115,7 +115,7 @@ const Footer = () => {
             <div className="w-full md:w-1/2 mx-auto footer-profile">
               <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
                 <Image
-                  src="/images/soumya-manna.webp"
+                  src="/images/assets/swap_2025-06-13_15-01-55.png"
                   alt="Soumya Manna"
                   width={56}
                   height={56}
@@ -152,9 +152,12 @@ const Footer = () => {
               </div>
 
               <div className="space-y-4 pt-10 text-center md:text-left footer-contact">
-                <p className="text-gray-500 text-sm uppercase tracking-wide">
-                  Contact Me
-                </p>
+            <p className="text-xs md:text-sm text-center md:text-left uppercase tracking-widest text-gray-400">
+              <span className="text-[#C9E651]">{"{"}</span>
+              {" 05 "}
+              <span className="text-[#C9E651]">{"}"}</span>
+              {" - CONTACT ME"}
+            </p>
                 <div className="group inline-flex items-center gap-2 flex-wrap text-xl md:text-2xl lg:text-4xl font-semibold text-white">
                   <span>
                     soumyamanna729
@@ -208,7 +211,7 @@ const Footer = () => {
           <p className="flex items-center gap-2 text-white/60 text-sm">
             Made by
             <Image
-              src="/images/soumya-manna.webp"
+              src="/images/assets/swap_2025-06-13_15-01-55.png"
               alt="Soumya Manna"
               width={24}
               height={24}

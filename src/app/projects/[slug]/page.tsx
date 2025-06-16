@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Project, projects } from "../projectdata";
+import { Project, projects } from "../../constant/projectdata";
 import MaxWidthWrapper from "@/app/components/MaxWidthWrapper";
 import Image from "next/image";
 import { ArrowLeft, Github, Radio } from "lucide-react";

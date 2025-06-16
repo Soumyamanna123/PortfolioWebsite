@@ -1,24 +1,32 @@
 "use client";
 
+import Image from "next/image";
 import React, { useRef } from "react";
+import { experiencedata } from "../constant/data";
+import { motion } from "framer-motion";
 
-const experiences = [
-  {
-    role: "Frontend Developer",
-    company: "TechCorp",
-    period: "Jan 2022 - Present",
-    description:
-      "Built responsive interfaces with React and optimized performance across mobile and web platforms.",
+const containerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
   },
-  {
-    role: "Intern",
-    company: "DataSpace Academy",
-    period: "Jun 2021 - Dec 2021",
-    description:
-      "Worked on internal tools using Node.js and improved codebase maintainability.",
+};
+
+const listStagger = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
   },
-  // Add more experiences if needed
-];
+};
+
+const itemFade = {
+  hidden: { opacity: 0, x: -10 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+};
 
 const Experience = () => {
   const cardRefs = useRef<HTMLDivElement[]>([]);
@@ -39,20 +47,23 @@ const Experience = () => {
 
   return (
     <div className="w-full space-y-6" id="experience">
-      {experiences.map((exp, index) => (
-        <div
+      {experiencedata.map((exp, index) => (
+        <motion.div
           key={index}
-          className="group card relative  border border-white/10 p-6 rounded-xl  transition-all duration-300 overflow-hidden"
+          ref={(el) => (cardRefs.current[index] = el!)}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          onMouseMove={(e) => handleMouseMove(e, index)}
+          className="group card relative border border-white/10 p-6 rounded-xl transition-all duration-300 overflow-hidden"
           style={{
             background: "linear-gradient(to top, #0D100B 0%, #0F1904 100%)",
           }}
-          onMouseMove={(e) => handleMouseMove(e, index)}
-          ref={(el) => (cardRefs.current[index] = el!)}
         >
-          {/* Glow Border */}
+          {/* Glow */}
           <div className="glow absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl" />
 
-          {/* Content */}
           <div className="relative z-10 flex gap-4">
             <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-black flex items-center justify-center">
               <span className="text-[#C9E651] text-lg font-bold">
@@ -60,41 +71,75 @@ const Experience = () => {
               </span>
             </div>
 
-            <div className="flex-grow">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+            <div className="flex flex-col gap-2 flex-grow">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
                 <div>
                   <h4 className="font-medium text-white text-lg">{exp.role}</h4>
                   <p className="text-white/60 text-sm">{exp.company}</p>
                 </div>
                 <span
-                  className="text-white/60 text-sm bg-white/5 px-5 py-1.5 rounded-full max-w-fit border border-[#528400]"
+                  className="text-white/60 text-[10px] 2xl:text-xs bg-white/5 px-3 lg:px-2 py-1 lg:py-1.5 rounded-full border border-[#528400] mt-2 sm:mt-0 sm:ml-4 max-w-fit"
                   style={{
-                    background:
-                      "linear-gradient(94deg, #080E15 0%, #2D4800 100%)",
+                    background: "linear-gradient(94deg, #080E15 0%, #2D4800 100%)",
                   }}
                 >
                   {exp.period}
                 </span>
               </div>
-
-              <div className="w-full h-[1px] bg-gradient-to-r from-gray-400/20 via-gray-400/50 to-transparent my-4" />
-
-              <p className="text-white/80 leading-relaxed">{exp.description}</p>
-
-              <div className="mt-4 flex flex-wrap gap-2">
-                <span className="text-xs text-[#C9E651] bg-black px-2 py-1 rounded">
-                  React
-                </span>
-                <span className="text-xs text-[#C9E651] bg-black px-2 py-1 rounded">
-                  Node.js
-                </span>
-                <span className="text-xs text-[#C9E651] bg-black px-2 py-1 rounded">
-                  Cybersecurity
-                </span>
-              </div>
             </div>
           </div>
-        </div>
+
+          <div className="w-full mt-4">
+            <div className="h-[1px] bg-gradient-to-r from-gray-400/20 via-gray-400/50 to-transparent mb-4" />
+
+            {Array.isArray(exp.description) && (
+              <motion.ul
+                className="space-y-3"
+                variants={listStagger}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                {exp.description.map((item, idx) => (
+                  <motion.li
+                    key={idx}
+                    variants={itemFade}
+                    className="flex items-start gap-3 text-white/80 text-sm leading-relaxed"
+                  >
+                    <Image
+                      src="/images/assets/profile-bg.png"
+                      alt="bullet point"
+                      width={16}
+                      height={16}
+                      className="mt-1"
+                    />
+                    <div>{item}</div>
+                  </motion.li>
+                ))}
+              </motion.ul>
+            )}
+
+            {exp.skills && (
+              <motion.div
+                className="mt-4 flex flex-wrap gap-2"
+                variants={listStagger}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                {exp.skills.map((skill, skillIdx) => (
+                  <motion.span
+                    key={skillIdx}
+                    variants={itemFade}
+                    className="text-xs text-[#C9E651] bg-black px-2 py-1 rounded"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </motion.div>
+            )}
+          </div>
+        </motion.div>
       ))}
     </div>
   );
