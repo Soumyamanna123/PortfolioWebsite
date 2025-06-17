@@ -33,9 +33,10 @@ const ContactPage = () => {
 
                 <p className="text-gray-500">
                   {" "}
-                  A passionate software engineer focused on building clean,
-                  efficient, and user-friendly web applications. I enjoy solving
-                  problems and crafting great digital experiences.
+                  Curious coder. Passionate builder. <br />
+                  With 1.5+ years crafting clean UIs and full-stack solutions, I
+                  turn ideas into fast, scalable, and user-friendly web
+                  experiences. Always learning. Always shipping.
                 </p>
                 <div className="mt-4 flex justify-center lg:justify-start space-x-4 footer-socials">
                   <Link href="https://github.com" target="_blank">

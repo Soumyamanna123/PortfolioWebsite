@@ -86,11 +86,11 @@ const Testimonials = () => {
                       className="w-12 h-12 rounded-full object-cover"
                     />
                     <div>
-                      <p className="font-semibold text-lg mb-2">{item.name}</p>
+                      <p className="font-semibold text-xl mb-2">{item.name}</p>
                       <p className="text-xs text-[#C9E651]">{item.position}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-white/80">{item.text}</p>
+                  <p className="text-md text-white/80">{item.text}</p>
                 </div>
               </motion.div>
             ))}

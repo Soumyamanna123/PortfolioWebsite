@@ -28,7 +28,7 @@ const Hero = () => {
       );
 
       gsap.fromTo(
-        ".intro-name",
+        ".intro-name", 
         { x: 50, opacity: 0 },
         { x: 0, opacity: 1, duration: 1, delay: 0.6 }
       );
@@ -100,7 +100,7 @@ const Hero = () => {
               </div> */}
 
               <div
-                className="relative w-64 h-64 md:w-80 md:h-80 mx-auto text-center rounded-full overflow-hidden bg-cover bg-center flex items-center justify-center"
+                className="relative w-52 h-52 md:w-80 md:h-80 mx-auto text-center rounded-full overflow-hidden bg-cover bg-center flex items-center justify-center"
                 style={{
                   backgroundImage: "url('/images/assets/profile-bg.png')",
                 }}
@@ -108,42 +108,34 @@ const Hero = () => {
                 <img
                   src="/images/assets/soumya-manna.png"
                   alt="Soumya Manna"
-                  className="rounded-full opacity-90 w-28 h-28 md:w-36 md:h-36 object-cover"
+                  className="rounded-full opacity-90 w-20 h-20 lg:w-28 lg:h-28 md:w-36 md:h-36 object-cover"
                 />
               </div>
 
-              <div className="text-sm text-white/60 text-center intro-hello">
-                <p className="-mt-8  text-lg  text-white/80 font-sans">
-                  <span className="inline-block animate-wave origin-[70%_70%]">
-                    👋🏻
-                  </span>{" "}
-                  Hello, I'm
-                  {/* <span className="[font-family:var(--font-carattere)] italic text-[#C9E651]">
-                    I am
-                  </span> */}
-                </p>
-              </div>
+              <p className="-mt-8 text-sm md:text-md text-white/50 font-sans text-center pb-2">
+                <span className="inline-block animate-wave origin-[70%_70%]">
+                  👋🏻 
+                </span>
+                {" "}Nice to meet you — I'm
+              </p>
 
-              <div className="text-center intro-name">
-                <h1 className="text-7xl md:text-7xl lg:text-8xl 2xl:text-9xl py-2  text-white">
-                  Soumya{" "}
-                  <span className="[font-family:var(--font-carattere)] italic text-transparent bg-clip-text bg-gradient-to-r from-[#C9E651] to-[#0f172a]">
-                    Manna
-                  </span>
+              <div className="text-center intro-name leading-[1.1] py-8 2xl:py-12">
+                <h1 className="text-[40px] sm:text-[90px] md:text-[120px] lg:text-[150px]  tracking-tighter font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#C9E651] to-[#000000] transform scale-y-300 md:scale-y-150 2xl:scale-y-200">
+                  SOUMYA MANNA
                 </h1>
               </div>
 
-              <div className="hero-text text-white font-sans text-center overflow-hidden pt-2 pb-6">
-                <p className="text-2xl md:text-3xl lg:text-4xl  flex items-center justify-center flex-wrap gap-2 whitespace-nowrap">
+              <div className="hero-text text-white/90 font-sans text-center overflow-hidden pt-2 pb-6">
+                <p className="text-lg md:text-3xl lg:text-3xl  flex items-center justify-center flex-wrap gap-2 whitespace-nowrap">
                   <span className="[font-family:var(--font-carattere)] italic text-[#C9E651]">
                     I ,&nbsp; {}
                   </span>
                   {} Shape
-                  <span className="relative   inline-flex items-center h-8 md:h-9 w-[130px] md:w-[180px] overflow-hidden">
+                  <span className="relative justify-center   inline-flex items-center h-8 md:h-9 w-[130px] md:w-[180px] overflow-hidden">
                     {words.map((word, index) => (
                       <span
                         key={word.id}
-                        className="absolute top-0   text-[#C9E651] left-0 w-full flex items-center gap-2 justify-start animate-word-slide opacity-0"
+                        className="absolute top-0   text-[#C9E651] justify-center w-full flex items-center gap-2  animate-word-slide opacity-0"
                         style={{
                           animationDelay: `${index * 2}s`,
                           animationDuration: `${words.length * 2}s`,
@@ -166,7 +158,7 @@ const Hero = () => {
                     Real Projects {}
                   </span>
                   that Deliver {}
-                  <span className="text-[#C9E651] md:text-3xl  border border-[#528400]  rounded-full py-1 px-4">
+                  <span className="text-[#C9E651] md:text-3xl   border border-[#528400]  rounded-full py-1 px-4">
                     {" "}
                     Results{" "}
                   </span>
@@ -174,8 +166,8 @@ const Hero = () => {
               </div>
 
               <div className="text-sm text-white/60 flex items-center justify-center mx-auto mt-10 scroll-indicator">
-                <div className="border border-white rounded-full animate-bounce p-1">
-                  <ChevronDown className="w-4 h-4 text-white" />
+                <div className="border border-[#528400]  rounded-full animate-bounce p-1">
+                  <ChevronDown className="w-4 h-4 bg-clip-text bg-gradient-to-b from-[#C9E651] to-[#000000]" />
                 </div>
               </div>
             </div>

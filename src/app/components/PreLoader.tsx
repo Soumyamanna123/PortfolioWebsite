@@ -25,7 +25,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
           transition={{ duration: 1 }}
         >
           <motion.div
-            className="flex items-center space-x-1 text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-t from-[#C9E651] to-white/90"
+            className="flex items-center space-x-1 text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#C9E651] to-[#000000]"
             initial={{ scale: 1 }}
             exit={{ scale: 1 }}  // no scale here, handled by parent
             transition={{ duration: 1 }}

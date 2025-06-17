@@ -17,8 +17,11 @@ const NavBar = () => {
   }, [isMenuOpen]);
 
   const MagnetLogo = withMagnet(() => (
-    <span className="font-serif text-3xl bg-gradient-to-t from-[#C9E651] to-white/90 text-transparent bg-clip-text">
-      SM <span className="text-[#C9E651]">.</span>
+    <span className="font-serif text-3xl  bg-gradient-to-b from-[#C9E651] to-[#000000] text-transparent bg-clip-text">
+      SM{" "}
+      <span className="bg-clip-text bg-gradient-to-b from-[#C9E651] to-[#000000]">
+        .
+      </span>
     </span>
   ));
 
@@ -30,9 +33,9 @@ const NavBar = () => {
           onClick={closeMenu}
         />
       )}
-    
-        <div className="fixed top-0 md:top-2 left-0  w-full  mx-auto z-50">
-  <MaxWidthWrapper className="px-0 md:px-8">
+
+      <div className="fixed top-0 md:top-2 left-0  w-full  mx-auto z-50">
+        <MaxWidthWrapper className="px-0 md:px-8">
           <div className="mx-auto px-4 md:px-6 bg-white/10 backdrop-blur-sm border-y md:border border-[#C9E651]/30 md:rounded-full py-3">
             <div className="flex items-center justify-between">
               {/* Logo */}
@@ -110,9 +113,8 @@ const NavBar = () => {
               ))}
             </div>
           </div>
-          </MaxWidthWrapper>
-        </div>
-      
+        </MaxWidthWrapper>
+      </div>
     </>
   );
 };
