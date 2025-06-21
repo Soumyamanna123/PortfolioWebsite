@@ -9,6 +9,7 @@ import { ChevronDown } from "lucide-react";
 
 import { useGSAP } from "@gsap/react";
 import { words } from "../constant/data";
+import Link from "next/link";
 
 const Hero = () => {
   const sectionRef = useRef(null);
@@ -28,7 +29,7 @@ const Hero = () => {
       );
 
       gsap.fromTo(
-        ".intro-name", 
+        ".intro-name",
         { x: 50, opacity: 0 },
         { x: 0, opacity: 1, duration: 1, delay: 0.6 }
       );
@@ -114,9 +115,9 @@ const Hero = () => {
 
               <p className="-mt-8 text-sm md:text-md text-white/50 font-sans text-center pb-2">
                 <span className="inline-block animate-wave origin-[70%_70%]">
-                  👋🏻 
-                </span>
-                {" "}Nice to meet you — I'm
+                  👋🏻
+                </span>{" "}
+                Nice to meet you — I'm
               </p>
 
               <div className="text-center intro-name leading-[1.1] py-8 2xl:py-12">
@@ -166,9 +167,11 @@ const Hero = () => {
               </div>
 
               <div className="text-sm text-white/60 flex items-center justify-center mx-auto mt-10 scroll-indicator">
-                <div className="border border-[#528400]  rounded-full animate-bounce p-1">
-                  <ChevronDown className="w-4 h-4 bg-clip-text bg-gradient-to-b from-[#C9E651] to-[#000000]" />
-                </div>
+                <Link href="#about" scroll={true}>
+                  <div className="border border-[#528400] rounded-full animate-bounce p-1 cursor-pointer">
+                    <ChevronDown className="w-4 h-4 bg-clip-text bg-gradient-to-b from-[#C9E651] to-[#000000]" />
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

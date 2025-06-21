@@ -1,11 +1,12 @@
 // app/projects/[slug]/page.tsx
 
 import Link from "next/link";
-import { notFound } from "next/navigation";
+
 import { Project, projects } from "../../constant/projectdata";
 import MaxWidthWrapper from "@/app/components/MaxWidthWrapper";
 import Image from "next/image";
 import { ArrowLeft, Github, Radio } from "lucide-react";
+import ProjectNotFound from "@/app/components/ProjectNotFound";
 
 interface Params {
   slug: string;
@@ -16,7 +17,11 @@ export default function ProjectPage({ params }: { params: Params }) {
     (p) => p.slug === params.slug
   );
 
-  if (!project) notFound(); // 404 if project doesn't exist
+  if (!project) {
+    return <ProjectNotFound />;
+  }
+
+  // 404 if project doesn't exist
 
   return (
     <MaxWidthWrapper>

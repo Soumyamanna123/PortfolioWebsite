@@ -2,6 +2,9 @@ import React, { useCallback, useRef, useState } from "react";
 import MaxWidthWrapper from "../components/MaxWidthWrapper";
 import { testimonials } from "../constant/data";
 import { motion, useAnimationFrame } from "framer-motion";
+import SectionHeader from "../components/SectionHeader";
+import { Linkedin } from "lucide-react";
+const sentence = ["Don’t take my word for it", "*"];
 
 const Testimonials = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,19 +31,13 @@ const Testimonials = () => {
     <section id="testimonials" className="py-20">
       <MaxWidthWrapper>
         <div className="text-center space-y-4">
-          <p className="text-xs md:text-sm uppercase tracking-widest text-gray-400">
-            <span className="text-[#C9E651]">{"{"}</span>
-            {" 04 "}
-            <span className="text-[#C9E651]">{"}"}</span>
-            {" - TESTIMONIALS"}
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white mx-auto max-w-2xl font-sans">
-            Don’t take my word for it
-            <span className="text-[#C9E651]">*</span>
-          </h2>
-          <p className="text-xs font-medium tracking-wide">
-            <span className="text-[#C9E651]">*</span>Take Theirs
-          </p>
+          <SectionHeader
+            sectionNumber="04"
+            title="TESTIMONIALS"
+            sentence={sentence}
+            highlight={["*"]} // optional
+            subtitle="*Take Theirs"
+          />
         </div>
         <div
           className="mt-16  flex overflow-x-hidden"
@@ -79,17 +76,33 @@ const Testimonials = () => {
                   />
 
                   {/* Your content goes here */}
-                  <div className="flex items-center space-x-4 mb-4">
-                    <img
-                      src={item.avatar}
-                      alt={item.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-semibold text-xl mb-2">{item.name}</p>
-                      <p className="text-xs text-[#C9E651]">{item.position}</p>
-                    </div>
-                  </div>
+<div className="flex items-center justify-between mb-4">
+  {/* Left: Avatar + Name + Position */}
+  <div className="flex items-center space-x-4">
+    <img
+      src={item.avatar}
+      alt={item.name}
+      className="w-12 h-12 rounded-full object-cover"
+    />
+    <div>
+      <p className="font-semibold text-xl leading-tight">{item.name}</p>
+      <p className="text-xs text-[#C9E651] leading-tight">{item.position}</p>
+    </div>
+  </div>
+
+  {/* Right: LinkedIn Icon */}
+  {item.linkedin && (
+    <a
+      href={item.linkedin}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#C9E651] hover:text-blue-500 transition-colors duration-200 cursor-pointer"
+    >
+      <Linkedin size={20} />
+    </a>
+  )}
+</div>
+
                   <p className="text-md text-white/80">{item.text}</p>
                 </div>
               </motion.div>

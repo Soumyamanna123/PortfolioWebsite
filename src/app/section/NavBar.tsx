@@ -1,13 +1,16 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { navLinks } from "../constant/data";
 import MaxWidthWrapper from "../components/MaxWidthWrapper";
 import { withMagnet } from "../components/WithMagent";
-import Link from "next/link";
-import { navLinks } from "../constant/data";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const closeMenu = () => setIsMenuOpen(false);
@@ -16,12 +19,30 @@ const NavBar = () => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
   }, [isMenuOpen]);
 
+  const handleNavClick = (item: (typeof navLinks)[number]) => {
+    closeMenu();
+
+    if (item.section) {
+      if (pathname === "/") {
+        const el = document.getElementById(item.section);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        router.push(`/?scrollTo=${item.section}`);
+      }
+    } else if (item.href) {
+      if (item.href.startsWith("http") || item.href.endsWith(".pdf")) {
+        window.open(item.href, "_blank");
+      } else {
+        router.push(item.href);
+      }
+    }
+  };
+
   const MagnetLogo = withMagnet(() => (
-    <span className="font-serif text-3xl  bg-gradient-to-b from-[#C9E651] to-[#000000] text-transparent bg-clip-text">
-      SM{" "}
-      <span className="bg-clip-text bg-gradient-to-b from-[#C9E651] to-[#000000]">
-        .
-      </span>
+    <span className="font-serif text-3xl bg-gradient-to-b from-[#C9E651] to-[#000000] text-transparent bg-clip-text">
+      SM<span className="bg-clip-text bg-gradient-to-b from-[#C9E651] to-[#000000]">.</span>
     </span>
   ));
 
@@ -34,7 +55,7 @@ const NavBar = () => {
         />
       )}
 
-      <div className="fixed top-0 md:top-2 left-0  w-full  mx-auto z-50">
+      <div className="fixed top-0 md:top-2 left-0 w-full z-50">
         <MaxWidthWrapper className="px-0 md:px-8">
           <div className="mx-auto px-4 md:px-6 bg-white/10 backdrop-blur-sm border-y md:border border-[#C9E651]/30 md:rounded-full py-3">
             <div className="flex items-center justify-between">
@@ -45,17 +66,15 @@ const NavBar = () => {
 
               {/* Desktop Navigation */}
               <div className="hidden md:flex space-x-10">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    scroll={false}
-                    onClick={closeMenu}
+                {navLinks.map((item) => (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavClick(item)}
                     className="relative group text-white/60 hover:text-white transition-colors duration-200"
                   >
-                    {link.name}
+                    {item.name}
                     <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#C9E651] transition-all duration-300 group-hover:w-full" />
-                  </Link>
+                  </button>
                 ))}
               </div>
 
@@ -68,8 +87,8 @@ const NavBar = () => {
                   {isMenuOpen ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
                       fill="none"
+                      viewBox="0 0 24 24"
                       stroke="currentColor"
                       strokeWidth={2}
                       className="h-6 w-6"
@@ -79,8 +98,8 @@ const NavBar = () => {
                   ) : (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
                       fill="none"
+                      viewBox="0 0 24 24"
                       stroke="currentColor"
                       strokeWidth={2}
                       className="h-6 w-6"
@@ -100,16 +119,14 @@ const NavBar = () => {
                   : "max-h-0 opacity-0 invisible"
               }`}
             >
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  scroll={false}
-                  onClick={closeMenu}
-                  className="block py-4 text-white/60 hover:text-white border-t border-white/10"
+              {navLinks.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavClick(item)}
+                  className="block w-full text-left py-4 px-4 text-white/60 hover:text-white border-t border-white/10"
                 >
-                  {link.name}
-                </Link>
+                  {item.name}
+                </button>
               ))}
             </div>
           </div>

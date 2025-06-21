@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import MaxWidthWrapper from "../components/MaxWidthWrapper";
 import FillButton from "@/components/ui/FillButton";
 import Link from "next/link";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import SectionHeader from "../components/SectionHeader";
 
 const aboutParagraphs = [
   <>
@@ -38,51 +39,26 @@ const aboutParagraphs = [
     impactful!
   </>,
 ];
+const sentence = ["Meet", "Soumya"];
 
 const About = () => {
-  const [showSection, setShowSection] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setShowSection(true);
-            observer.disconnect(); // Run only once
-          }
-        });
-      },
-      { threshold: 0.3 } // 30% of the section is visible
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
       id="about"
-      ref={sectionRef}
-      className={`bg-black pt-16 md:py-16 transition-opacity duration-700 ease-in-out ${
-        showSection ? "opacity-100" : "opacity-0"
-      }`}
+      className="bg-black pt-16 md:py-16 transition-opacity duration-700 ease-in-out opacity-100"
     >
       <MaxWidthWrapper>
         <div>
-          <p className="text-xs md:text-sm text-left uppercase tracking-widest text-gray-400">
-            <span className="text-[#C9E651]">{"{"}</span>
-            {" 01 "}
-            <span className="text-[#C9E651]">{"}"}</span>
-            {" - ABOUT ME"}
-          </p>
-          <h2 className="text-5xl lg:text-6xl pt-4 text-left ">
-            Meet <span className="text-[#C9E651]">Soumya,</span>
-          </h2>
+          <SectionHeader
+            sectionNumber="01"
+            title="ABOUT ME"
+            sentence={sentence}
+            highlight={["Soumya"]}
+            alignClasses="text-center md:text-left"
+            justify="start"
+          />
         </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-8 pb-16">
           {/* Left Side */}
           <div className="text-white">

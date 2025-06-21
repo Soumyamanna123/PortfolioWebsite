@@ -10,11 +10,11 @@ export interface Experience {
 }
 
 export const navLinks = [
-  { name: "Work", href: "/#projects" },
-  { name: "Experience", href: "/#experience" },
-  { name: "Testimonials", href: "/#testimonials" },
+  { name: "Work", section: "projects" },
+  { name: "Experience", section: "experience" },
+  { name: "Testimonials", section: "testimonials" },
   { name: "Contact Me", href: "/contact" },
-  { name: "Resume", href: "" },
+  { name: "Resume", href: "https://drive.google.com/file/d/1H7jOvt4fqAvKvkVvQxH6j091LbQKJPk3/view" }, // or any external link
 ];
 
 export const words = [
@@ -84,33 +84,38 @@ export const experiencedata: Experience[] = [
 
 export const testimonials = [
   {
-    name: "Alex Turner",
-    position: "Marketing Manager @ TechStartups",
-    text: "Alex was instrumental in transforming our website into a powerful marketing tool. His attention to detail and ability to understand our brand is exceptional. We're thrilled with the results!",
+    name: "Arya Majumdar",
+    position: "Senior UI/UX Designr",
+    text: "Working with Soumya has been one of those genuinely smooth and stress-free experiences you wish you had on every project. As a designer, you often worry about how your vision will translate once it goes into development, but with Soumya, that worry never existed.He just gets it. He listens, pays attention to the little design details, and genuinely cares about making things look and feel right. What I really appreciate is how open he is to feedback, how quick he is to respond, and how calm he stays even when things get challenging. It always felt like we were working toward the same goal, not just in roles but in mindset. He’s thoughtful, collaborative, and incredibly easy to work with. I’d be happy to collaborate with him again anytime.",
     avatar: "images/assets/soumya-manna.png",
+    linkedin: "https://www.linkedin.com/in/username/",
   },
   {
     name: "Olivia Green",
     position: "Head of Design @ GreenLeaf",
     text: "Working with Alex was a pleasure. His expertise in frontend development brought our designs to life in a way we never imagined. The website has exceeded our expectations.",
     avatar: "images/assets/swap_2025-06-13_15-01-55.png",
+    linkedin: "https://www.linkedin.com/in/username/",
   },
   {
     name: "Daniel White",
     position: "CEO @ InnovateCo",
     text: "Alex's ability to create seamless user experiences is unmatched. Our website has seen a significant increase in conversions since launching the new design. We couldn't be happier.",
     avatar: "images/assets/soumya-manna.png",
+    linkedin: "https://www.linkedin.com/in/username/",
   },
   {
-    name: "Emily Carter",
-    position: "Product Manager @ GlobalTech",
-    text: "Alex is a true frontend wizard. He took our complex product and transformed it into an intuitive and engaging user interface. We're already seeing positive feedback from our customers.",
+    name: "Abhishek Das",
+    position: "Senior Software Engineer",
+    text: "I highly recommend Soumya Manna. He is polite, attentive, and always eager to learn. Soumya has shown solid knowledge in frontend development, especially with React, Next.js, and Tailwind. He follows best practices, writes clean code, and is a reliable team player. His understanding of web development, API integration, Node.js, and Git is commendable. His positive attitude and dedication make him a great asset to any team.",
     avatar: "images/assets/swap_2025-06-13_15-01-55.png",
+    linkedin: "https://www.linkedin.com/in/username/",
   },
   {
     name: "Michael Brown",
     position: "Director of IT @ MegaCorp",
     text: "Alex's work on our website has been nothing short of exceptional. He's a talented developer who is also a great communicator. We highly recommend him.",
     avatar: "images/assets/soumya-manna.png",
+    linkedin: "https://www.linkedin.com/in/username/",
   },
 ];
