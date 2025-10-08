@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { Project, projects } from "../../constant/projectdata";
+import { Project, projects } from "../../constant/projectdetails/projectdata";
 import MaxWidthWrapper from "@/app/components/MaxWidthWrapper";
 import Image from "next/image";
 import { ArrowLeft, Github, Radio } from "lucide-react";

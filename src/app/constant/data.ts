@@ -14,7 +14,10 @@ export const navLinks = [
   { name: "Experience", section: "experience" },
   { name: "Testimonials", section: "testimonials" },
   { name: "Contact Me", href: "/contact" },
-  { name: "Resume", href: "https://drive.google.com/file/d/1H7jOvt4fqAvKvkVvQxH6j091LbQKJPk3/view" }, // or any external link
+  {
+    name: "Resume",
+    href: "https://drive.google.com/file/d/1H7jOvt4fqAvKvkVvQxH6j091LbQKJPk3/view",
+  }, // or any external link
 ];
 
 export const words = [

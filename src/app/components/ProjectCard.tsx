@@ -1,7 +1,7 @@
 // components/cards/ProjectCard.tsx
 import { ArrowRight, CheckCircleIcon } from "lucide-react";
 import Link from "next/link";
-import { Project } from "../constant/projectdata";
+import { Project } from "../constant/projectdetails/projectdata";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (

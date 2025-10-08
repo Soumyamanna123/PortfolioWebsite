@@ -2,7 +2,7 @@
 import MaxWidthWrapper from "../components/MaxWidthWrapper";
 import ProjectCard from "../components/ProjectCard";
 import SectionHeader from "../components/SectionHeader";
-import { projects, ProjectsSectionProps } from "../constant/projectdata";
+import { projects, ProjectsSectionProps } from "../constant/projectdetails/projectdata";
 import { motion } from "framer-motion";
 const sentence = ["Built with", "Passion & Code"];
 
