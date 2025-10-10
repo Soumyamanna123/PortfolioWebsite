@@ -30,6 +30,11 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+
+
+/* styles/globals.css */
+
 .animate-wave {
   animation: wave 2s infinite;
   display: inline-block;
@@ -152,28 +157,40 @@ html {
       #528400 0deg 90deg,
       transparent 90deg 360deg
     );
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
-    filter: drop-shadow(0 0 10px #C9E65188);
+    filter: drop-shadow(0 0 10px #c9e65188);
   }
 }
 
-
-
 @keyframes wave {
-  0% { transform: rotate(0deg); }
-  10% { transform: rotate(14deg); }
-  20% { transform: rotate(-8deg); }
-  30% { transform: rotate(14deg); }
-  40% { transform: rotate(-4deg); }
-  50% { transform: rotate(10deg); }
-  60% { transform: rotate(0deg); }
-  100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
-
 
 @keyframes scrollLeft {
   0% {
@@ -195,7 +212,6 @@ html {
 }
 
 :root {
-
   --radius: 0.625rem;
 
   --background: oklch(1 0 0);
@@ -259,10 +275,44 @@ html {
   --sidebar-border: oklch(0.92 0.004 286.32);
 
   --sidebar-ring: oklch(0.705 0.015 286.067);
+
+  --background-color: #010313;
+  --background-color-2: #181024;
+  --text-primary-color: #fff;
+  --text-secondary-color: #000;
+  --primary-color: #3ca2fa;
+  --primary-color-1: #3ca2fa66;
+  --primary-color-2: #3ca2fa4d;
+  --primary-color-3: #3ca2fa33;
+  --primary-color-4: #3ca2fa1a;
+  --primary-color-5: #3ca2fa0d;
+  --secondary-color: #80eeb4;
+  --secondary-color-1: #80eeb4cc;
+  --secondary-color-2: #80eeb44d;
+  --secondary-color-3: #80eeb433;
+  --secondary-color-4: #80eeb41a;
+  --white-color: #fff;
+  --white-color-2: #ffffffcc;
+  --black-color: #000;
+  --black-color-2: #736f7f;
+  --black-color-3: #8d94a1;
+  --black-color-4: #d4d4d4;
+  --glass-color: #0d0e1e;
+  --glass-color-2: #1b1d2b;
+  --glass-color-3: #313240;
+  --glass-color-4: #3d3e4b;
+  --glass-color-5: #0d0e1e66;
+  --border-color: #393a3d;
+  --placeholder-color: #8f99b1;
+  --copy-right-color: #6a5f77;
+  --opacity-text-color: #959596;
+  --purple-color: #140e1e80;
+
+  --font-nunito: "Nunito";
+  --font-creepster: "Creepster";
 }
 
 .dark {
-
   --background: oklch(0.141 0.005 285.823);
 
   --foreground: oklch(0.985 0 0);
@@ -327,7 +377,6 @@ html {
 }
 
 @theme inline {
-
   --radius-sm: calc(var(--radius) - 4px);
 
   --radius-md: calc(var(--radius) - 2px);

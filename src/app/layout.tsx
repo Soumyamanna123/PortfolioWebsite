@@ -1,8 +1,10 @@
+// app/layout.tsx
+
 import type { Metadata } from "next";
 import { Inter, Calistoga, Carattere } from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
-
+import { ThemeProvider } from "next-themes";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -15,7 +17,7 @@ const calistoga = Calistoga({
 const carattere = Carattere({
   subsets: ["latin"],
   variable: "--font-carattere",
-  weight: ["400"], // Only 400 is available for Carattere
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -25,20 +27,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={twMerge(
           inter.variable,
           calistoga.variable,
           carattere.variable,
-          "bg-[#000000] text-white antialiased font-sans"
+          "bg-white text-black dark:bg-[#000000] dark:text-white font-sans antialiased"
         )}
       >
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

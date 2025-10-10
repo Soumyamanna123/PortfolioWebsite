@@ -8,6 +8,9 @@ import FillButton from "@/components/ui/FillButton";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import ThemeToggle from "@/components/ui/ThemeToggle";
+import RocketScrollToTop from "../components/common/RocketScrollToTop";
+import Collaboration from "@/components/shared/footer/components/Collaboration";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,8 +70,34 @@ const Footer = () => {
 
   const currentYear = new Date().getFullYear();
 
+    const textRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const text = textRef.current;
+    if (!text) return;
+
+    // Initial state
+    gsap.set(text, { color: "#7a7a7a" });
+
+    // ScrollTrigger animation
+    gsap.to(text, {
+      color: "#ffffff",
+      ease: "none",
+      scrollTrigger: {
+        trigger: text,
+        start: "top 80%",   // when top of text is near 80% of viewport
+        end: "bottom 20%",  // when bottom of text reaches 20% of viewport
+        scrub: true,        // smooth sync with scroll
+      },
+    });
+  }, []);
+
   return (
-    <footer className="pt-16 pb-8 bg-black text-white" id="footer" ref={footerRef}>
+    <footer
+      className="pt-16 pb-8 bg-white dark:bg-black text-white"
+      id="footer"
+      ref={footerRef}
+    >
       <MaxWidthWrapper>
         {/* Freelance Banner */}
         <div className="flex flex-col md:flex-row justify-between py-10">
@@ -76,11 +105,11 @@ const Footer = () => {
             <h2 className="text-3xl font-semibold font-sans flex justify-center items-center gap-2">
               Available for
               <span className="text-[#C9E651] font-normal [font-family:var(--font-carattere)]">
-                Freelance Work
+                FullTime Consultant & Freelance Work
               </span>
             </h2>
           </div>
-          <div className="hidden md:block">
+          {/* <div className="hidden md:block">
             <a
               href="#top"
               className="flex items-center gap-2 hover:text-white/60 transition-colors text-sm font-medium"
@@ -90,20 +119,29 @@ const Footer = () => {
               </div>
               Back to the Top
             </a>
+          </div> */}
+          <div className=" rocket-animation">
+            <RocketScrollToTop className=" bg-[var(--background-color)] max-w-24 mx-auto  rounded-full -mt-16 hidden md:block" />
           </div>
         </div>
 
         {/* Content Section */}
         <div className="py-10">
-          <div className="flex  flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex  flex-col  items-center justify-between gap-6">
             <div
-              className="w-full md:w-1/2  text-center md:text-left footer-heading bg-no-repeat bg-contain bg-center py-12"
+              className="mx-auto     text-center  footer-heading bg-no-repeat bg-contain bg-center py-12"
               style={{ backgroundImage: "url('/images/assets/shape.svg')" }}
             >
-              <p className="text-5xl pb-6 font-medium xl:text-7xl text-white font-sans leading-14 md:leading-16 lg:leading-20">
+              {/* <p
+                ref={textRef}
+                className="text-5xl pb-6 font-medium xl:text-7xl text-white font-sans leading-14 md:leading-16 lg:leading-20 select-none"
+              >
+                Open to full-time opportunities and freelance collaborations —
                 Let&apos;s create something extraordinary together
                 <span className="text-[#C9E651]">*</span>
-              </p>
+              </p> */}
+              <Collaboration/>
+
               <p className="font-sans text-lg text-white/60">
                 Let&apos;s Make an{" "}
                 <span className="text-[#C9E651] font-normal [font-family:var(--font-carattere)]">
@@ -112,7 +150,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="w-full md:w-1/2 mx-auto footer-profile">
+            <div className="w-full  mx-auto footer-profile">
               <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
                 <Image
                   src="/images/assets/swap_2025-06-13_15-01-55.png"
@@ -152,12 +190,12 @@ const Footer = () => {
               </div>
 
               <div className="space-y-4 pt-10 text-center md:text-left footer-contact">
-            <p className="text-xs md:text-sm text-center md:text-left uppercase tracking-widest text-gray-400">
-              <span className="text-[#C9E651]">{"{"}</span>
-              {" 05 "}
-              <span className="text-[#C9E651]">{"}"}</span>
-              {" - CONTACT ME"}
-            </p>
+                <p className="text-xs md:text-sm text-center md:text-left uppercase tracking-widest text-gray-400">
+                  <span className="text-[#C9E651]">{"{"}</span>
+                  {" 05 "}
+                  <span className="text-[#C9E651]">{"}"}</span>
+                  {" - CONTACT ME"}
+                </p>
                 <div className="group inline-flex items-center gap-2 flex-wrap text-xl md:text-2xl lg:text-4xl font-semibold text-white">
                   <span>
                     soumyamanna729
