@@ -14,6 +14,7 @@ import SkillsSection from "@/components/homepage/MySkills";
 import ProjectsSection from "@/components/homepage/ProjectList";
 import Testimonials from "@/components/homepage/Testimonials";
 import Footer from "@/components/homepage/Footer";
+import NewFooter from "@/components/shared/footer/Footer";
 
 // Dynamically import sections
 // const NavBar = dynamic(() => import("./section/NavBar"));
@@ -79,6 +80,7 @@ export default function Home() {
           <ProjectsSection />
           <Testimonials />
           <Footer />
+          <NewFooter/>
         </main>
       )}
     </>
