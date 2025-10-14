@@ -6,7 +6,7 @@ import { Project, projects } from "../../constant/projectdetails/projectdata";
 import MaxWidthWrapper from "@/app/components/MaxWidthWrapper";
 import Image from "next/image";
 import { ArrowLeft, Github, Radio } from "lucide-react";
-import ProjectNotFound from "@/app/components/ProjectNotFound";
+import ProjectNotFound from "@/components/ProjectNotFound";
 
 interface Params {
   slug: string;

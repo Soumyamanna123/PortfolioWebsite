@@ -2,11 +2,11 @@
 
 import React from "react";
 import MaxWidthWrapper from "../components/MaxWidthWrapper";
-import AuthorCard from "../components/AuthorCard";
+import AuthorCard from "../../components/AuthorCard";
 import Image from "next/image";
 import Link from "next/link";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
-import ContactForm from "../components/ContactForm";
+import ContactForm from "../../components/ContactForm";
 
 const ContactPage = () => {
   return (

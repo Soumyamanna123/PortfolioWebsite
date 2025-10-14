@@ -3,20 +3,26 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
-import Preloader from "./components/PreLoader";
-import Ribbon from "./section/Ribbon";
+import Preloader from "../components/PreLoader";
+import Ribbon from "../components/homepage/Ribbon";
 import { navItems } from "./constant/shared/navItems";
 import CardNav from "@/components/CardNav";
 import "../styles/footer.css"
+import Hero from "@/components/homepage/Hero";
+import About from "@/components/homepage/About";
+import SkillsSection from "@/components/homepage/MySkills";
+import ProjectsSection from "@/components/homepage/ProjectList";
+import Testimonials from "@/components/homepage/Testimonials";
+import Footer from "@/components/homepage/Footer";
 
 // Dynamically import sections
-const NavBar = dynamic(() => import("./section/NavBar"));
-const Hero = dynamic(() => import("./section/Hero"));
-const About = dynamic(() => import("./section/About"));
-const SkillsSection = dynamic(() => import("./section/MySkills"));
-const ProjectsSection = dynamic(() => import("./section/ProjectList"));
-const Testimonials = dynamic(() => import("./section/Testimonials"));
-const Footer = dynamic(() => import("./section/Footer"));
+// const NavBar = dynamic(() => import("./section/NavBar"));
+// const Hero = dynamic(() => import("./section/Hero"));
+// const About = dynamic(() => import("../components/homepage/About"));
+// const SkillsSection = dynamic(() => import("./section/MySkills"));
+// const ProjectsSection = dynamic(() => import("./section/ProjectList"));
+// const Testimonials = dynamic(() => import("./section/Testimonials"));
+// const Footer = dynamic(() => import("../components/homepage/Footer"));
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -58,8 +64,7 @@ export default function Home() {
             buttonBgColor="#111"
             buttonTextColor="#fff"
             ease="power3.out"
-            className="
-  backdrop-blur-3xl 
+            className=" backdrop-blur-3xl 
   backdrop-saturate-150 
  bg-white dark:bg-[rgba(17,25,40,0.75)] 
   rounded-[12px] 

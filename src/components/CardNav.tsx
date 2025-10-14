@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ArrowBigRight } from "lucide-react";
 import Link from "next/link";
-import { withMagnet } from "@/app/components/WithMagent";
+import { withMagnet } from "@/components/WithMagent";
 import ThemeToggle from "./ui/ThemeToggle";
 // use your own icon import if react-icons is not available
 
