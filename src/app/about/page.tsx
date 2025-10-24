@@ -1,28 +1,31 @@
 import React from "react";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import About from "@/components/homepage/About";
+
+
+import HeroSection from "@/components/homepage/HeroSection";
 import ExperienceTimeline from "./components/ExperienceTimeline";
+import { ExperienceTimelinePrecise } from "./components/ExperienceTimelinePrecise";
+import GitHubActivity from "./components/GitHubActivity";
+
 
 const AboutPage = () => {
   return (
     <div className="relative">
-      {/* Hero Section */}
-      <div className="relative h-[600px] bg-cover bg-center opacity-20">
-        <div className="absolute inset-0 bg-black/30 z-0" />
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('/images/assets/paper-texture-optmized.webp')",
-          }}
-        />
-      </div>
+      <HeroSection
+        backgroundImage="/images/assets/paper-texture-optmized.webp"
+        height="600px"
+        overlayOpacity={0.2}
+        contentOverlap="500px" // Adjust this value
+        className=""
+      />
 
-      {/* Main Content */}
-      <div className="relative z-10 -mt-20">
+      <div className="relative z-20">
         <MaxWidthWrapper>
-          <About className="pt-0" />
-          <ExperienceTimeline />
+          <About className="" />
+         {/* <ExperienceTimeline/> */}
+         <ExperienceTimelinePrecise/>
+         <GitHubActivity/>
         </MaxWidthWrapper>
       </div>
     </div>

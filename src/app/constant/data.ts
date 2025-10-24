@@ -79,7 +79,13 @@ export const experiencedata: Experience[] = [
     description: [
       "Worked on internal tools using Node.js.",
       "Improved codebase maintainability.",
+      "Gained exposure to cybersecurity fundamentals. Gained exposure to cybersecurity fundamentals. Gained exposure to cybersecurity fundamentals.",
+            "Worked on internal tools using Node.js.",
+      "Improved codebase maintainability.",
       "Gained exposure to cybersecurity fundamentals.",
+            "Worked on internal tools using Node.js.",
+      "Improved codebase maintainability.",
+      "Gained exposure to cybersecurity fundamentals."
     ],
     skills: ["Node.js", "Express", "Cybersecurity"],
   },

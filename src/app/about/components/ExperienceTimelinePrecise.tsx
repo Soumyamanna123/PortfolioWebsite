@@ -1,57 +1,57 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { experiencedata } from "@/app/constant/data";
 
-interface ExperienceTimelineProps {
+interface ExperienceTimelinePreciseProps {
   scrollIcon?: string;
   iconSize?: number;
 }
 
-const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
-  scrollIcon = "/images/scroll-icon.png",
+const ExperienceTimelinePrecise: React.FC<ExperienceTimelinePreciseProps> = ({
+  scrollIcon = "/images/soumya-manna.webp",
   iconSize = 40,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [maxScroll, setMaxScroll] = useState(1000);
-
-  // Calculate max scroll distance
-  useEffect(() => {
-    if (containerRef.current) {
-      setMaxScroll(containerRef.current.scrollHeight - iconSize);
-    }
-  }, [iconSize]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start center", "end center"], // Changed from start start / end end
+    offset: ["start 0.2", "end 0.8"],
   });
 
-  // FIXED: Icon starts at top (0) and moves down (maxScroll) as you scroll
-  const iconY = useTransform(scrollYProgress, [0, 1], [0, maxScroll]);
+  const iconY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <div className="relative py-20">
-      <div ref={containerRef} className="relative space-y-16">
-        {/* Timeline Line */}
-        <div className="absolute top-0 bottom-0 left-[calc(33.333%-0.5rem)] w-px bg-gradient-to-b from-blue-200 via-blue-400 to-blue-200 dark:from-blue-900 dark:via-blue-700 dark:to-blue-900">
-          {/* Moving Icon - Starts at TOP */}
+      <div ref={containerRef} className="relative space-y-16 min-h-[800px]">
+        {/* Neon Timeline Bar */}
+        <div className="absolute top-0 bottom-0 left-[calc(33.333%-0.125rem)]">
+          {/* Outer glow */}
+          <div className="absolute inset-0 w-2 bg-gradient-to-b from-cyan-500 via-blue-500 to-purple-600 blur-xl opacity-50" />
+          
+          {/* Main bar with neon effect */}
+          <div className="absolute inset-0 w-1 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-600 shadow-[0_0_20px_rgba(59,130,246,0.5)]" />
+
+          {/* Moving Icon */}
           <motion.div
-            style={{ y: iconY }}
-            className="absolute left-1/2 -translate-x-1/2 top-0 z-10 will-change-transform"
+            style={{ top: iconY }}
+            className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
           >
             <div
-              className="relative bg-white dark:bg-gray-900 rounded-full p-2 shadow-xl border-4 border-blue-400 dark:border-blue-600"
+              className="relative rounded-full p-1 shadow-[0_0_30px_rgba(59,130,246,0.8)] border-2 border-cyan-400 bg-gradient-to-br from-cyan-400 to-blue-600"
               style={{ width: iconSize + 16, height: iconSize + 16 }}
             >
-              <div className="relative" style={{ width: iconSize, height: iconSize }}>
+              <div 
+                className="relative rounded-full overflow-hidden ring-2 ring-cyan-300/50" 
+                style={{ width: iconSize, height: iconSize }}
+              >
                 <Image
                   src={scrollIcon}
                   alt="Timeline progress"
                   fill
-                  className="object-contain"
+                  className="object-cover"
                   priority
                 />
               </div>
@@ -59,7 +59,7 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
           </motion.div>
         </div>
 
-        {/* Experience Items */}
+        {/* Rest of content same as above */}
         {experiencedata.map((exp, index) => (
           <motion.div
             key={index}
@@ -85,7 +85,7 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
               <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-4">
                 {exp.description.map((item, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.8)] mt-2 flex-shrink-0" />
                     <span className="text-sm leading-relaxed">{item}</span>
                   </li>
                 ))}
@@ -95,7 +95,7 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                 {exp.skills.map((skill, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 text-xs font-medium rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                    className="px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/30 dark:to-blue-900/30 text-cyan-700 dark:text-cyan-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all"
                   >
                     {skill}
                   </span>
@@ -109,4 +109,5 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
   );
 };
 
-export default ExperienceTimeline;
+
+export { ExperienceTimelinePrecise };
