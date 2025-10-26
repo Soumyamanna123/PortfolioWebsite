@@ -9,6 +9,7 @@ import { ExperienceTimelinePrecise } from "./components/ExperienceTimelinePrecis
 import GitHubActivity from "./components/GitHubActivity";
 
 
+
 const AboutPage = () => {
   return (
     <div className="relative">
@@ -17,10 +18,10 @@ const AboutPage = () => {
         height="600px"
         overlayOpacity={0.2}
         contentOverlap="500px" // Adjust this value
-        className=""
+        className="opacity-30"
       />
 
-      <div className="relative z-20">
+      <div className="relative z-20 ">
         <MaxWidthWrapper>
           <About className="" />
          {/* <ExperienceTimeline/> */}

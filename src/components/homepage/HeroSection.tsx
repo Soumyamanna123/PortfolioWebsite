@@ -25,7 +25,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     <>
       <div className={`relative ${className}`} style={{ height }}>
         {/* Background Image */}
-        <div className="absolute inset-0 w-full h-full">
+        <div className="absolute inset-0 w-full h-full ">
           <Image
             src={backgroundImage}
             alt="Hero background"
