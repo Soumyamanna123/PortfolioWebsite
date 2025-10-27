@@ -4,7 +4,7 @@ import React, { useEffect, useRef, ReactNode } from "react";
 interface GlowCardProps {
   children?: ReactNode;
   className?: string;
-  glowColor?: "blue" | "purple" | "green" | "red" | "orange" ;
+  glowColor?: "blue" | "purple" | "green" | "red" | "orange" | "white" ;
   size?: "sm" | "md" | "lg";
   width?: string | number;
   height?: string | number;
@@ -17,6 +17,7 @@ const glowColorMap = {
   green: { base: 120, spread: 200 },
   red: { base: 0, spread: 200 },
   orange: { base: 30, spread: 200 },
+   white: { base: 0, spread: 0 },
 };
 
 const sizeMap = {
@@ -69,47 +70,52 @@ const GlowCard: React.FC<GlowCardProps> = ({
     return sizeMap[size];
   };
 
-  const getInlineStyles = (): React.CSSProperties => {
-    const baseStyles: React.CSSProperties & {
-      [key: string]: string | number | undefined;
-    } = {
-      "--base": base,
-      "--spread": spread,
-      "--radius": "14",
-      "--border": "3",
-      "--backdrop": "hsl(0 0% 60% / 0.12)",
-      "--backup-border": "var(--backdrop)",
-      "--size": "200",
-      "--outer": "1",
-      "--border-size": "calc(var(--border, 2) * 1px)",
-      "--spotlight-size": "calc(var(--size, 150) * 1px)",
-      "--hue": "calc(var(--base) + (var(--xp, 0) * var(--spread, 0)))",
-      backgroundImage: `radial-gradient(
-        var(--spotlight-size) var(--spotlight-size) at
-        calc(var(--x, 0) * 1px)
-        calc(var(--y, 0) * 1px),
-        hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.1)), transparent
-      )`,
-      backgroundColor: "var(--backdrop, transparent)",
-      backgroundSize:
-        "calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)))",
-      backgroundPosition: "50% 50%",
-      backgroundAttachment: "fixed",
-      border: "var(--border-size) solid var(--backup-border)",
-      position: "relative",
-      touchAction: "none",
-    };
+const getInlineStyles = (): React.CSSProperties => {
+  const isWhite = glowColor === "white";
+  const { base, spread } = glowColorMap[glowColor];
 
-    // Add width and height if provided
-    if (width !== undefined) {
-      baseStyles.width = typeof width === "number" ? `${width}px` : width;
-    }
-    if (height !== undefined) {
-      baseStyles.height = typeof height === "number" ? `${height}px` : height;
-    }
-
-    return baseStyles;
+  const baseStyles: React.CSSProperties & {
+    [key: string]: string | number | undefined;
+  } = {
+    "--base": base,
+    "--spread": spread,
+    "--radius": "14",
+    "--border": "3",
+    "--backdrop": "hsl(0 0% 60% / 0.12)",
+    "--backup-border": "var(--backdrop)",
+    "--size": "200",
+    "--outer": "1",
+    "--border-size": "calc(var(--border, 2) * 1px)",
+    "--spotlight-size": "calc(var(--size, 150) * 1px)",
+    "--hue": "calc(var(--base) + (var(--xp, 0) * var(--spread, 0)))",
+    "--saturation": isWhite ? 0 : 100, // 👈 override saturation for white
+    "--lightness": isWhite ? 100 : 70, // 👈 make it pure white
+    backgroundImage: `radial-gradient(
+      var(--spotlight-size) var(--spotlight-size) at
+      calc(var(--x, 0) * 1px)
+      calc(var(--y, 0) * 1px),
+      hsl(var(--hue, 210) calc(var(--saturation) * 1%) calc(var(--lightness) * 1%) / var(--bg-spot-opacity, 0.1)), transparent
+    )`,
+    backgroundColor: "var(--backdrop, transparent)",
+    backgroundSize:
+      "calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)))",
+    backgroundPosition: "50% 50%",
+    backgroundAttachment: "fixed",
+    border: "var(--border-size) solid var(--backup-border)",
+    position: "relative",
+    touchAction: "none",
   };
+
+  if (width !== undefined) {
+    baseStyles.width = typeof width === "number" ? `${width}px` : width;
+  }
+  if (height !== undefined) {
+    baseStyles.height = typeof height === "number" ? `${height}px` : height;
+  }
+
+  return baseStyles;
+};
+
 
   const beforeAfterStyles = `
     [data-glow]::before,

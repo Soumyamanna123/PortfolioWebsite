@@ -94,7 +94,7 @@ const GitHubActivity = () => {
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-12">
             {/* Followers Card */}
             <GlowCard
-              glowColor="purple"
+              glowColor="white"
               size="sm"
               customSize
               width={200}
