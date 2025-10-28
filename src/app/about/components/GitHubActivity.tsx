@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useGitHubStats } from "@/hooks/useGitHubStats";
 import GradientText from "@/components/nurui/gradient-text";
+import SectionHeader from "@/components/SectionHeader";
 
 const GITHUB_USERNAME = "Soumyamanna123";
 
@@ -22,37 +23,15 @@ const GitHubActivity = () => {
     <section className="text-white py-16">
       {/* Header */}
       <div className="text-center mb-12">
-        <div className="flex items-center justify-center gap-2 mb-3">
-          <Activity className="w-5 h-5 text-gray-400" />
-          <h2 className="text-sm tracking-widest text-gray-400 uppercase">
-            Developer Insights
-          </h2>
-        </div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          GitHub{" "}
-          <span>
-            <GradientText
-              colors={["#3ca2fa", "#80eeb4", "#3ca2fa", "#80eeb4", "#3ca2fa"]}
-              animationSpeed={3}
-              showBorder={false}
-              className="text-6xl font-black"
-            >
-              Activity
-            </GradientText>
-          </span>
-        </h1>
-        <GradientText
-          colors={["#3ca2fa", "#80eeb4", "#3ca2fa", "#80eeb4", "#3ca2fa"]}
-          animationSpeed={3}
-          showBorder={false}
-          className="text-6xl font-black"
-        >
-          Activity
-        </GradientText>
-        <div className="p-10"></div>
-        <p className="text-gray-400 max-w-2xl mx-auto">
-          Track my coding journey and contributions across open source projects
-        </p>
+        <SectionHeader
+          sectionNumber="03"
+          title="Developer Insight"
+          sentence={["GitHub", "Activity"]}
+          highlight={["GitHub"]}
+          alignClasses="text-center "
+          justify="center"
+          className="pb-4"
+        />
       </div>
 
       {/* Contribution Graph */}
@@ -91,7 +70,7 @@ const GitHubActivity = () => {
       ) : stats ? (
         <>
           {/* Stats using GlowCard */}
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-12">
+          <div className="flex flex-wrap items-center justify-center gap-6  mb-12">
             {/* Followers Card */}
             <GlowCard
               glowColor="white"

@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { experiencedata } from "@/app/constant/data";
+import SectionHeader from "@/components/SectionHeader";
 
 interface ExperienceTimelineProps {
   scrollIcon?: string;
@@ -34,6 +35,7 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
 
   return (
     <div className="relative py-20">
+
       <div ref={containerRef} className="relative space-y-16">
         {/* Timeline Line */}
         <div className="absolute top-0 bottom-0 left-[calc(33.333%-0.5rem)] w-px bg-gradient-to-b from-blue-200 via-blue-400 to-blue-200 dark:from-blue-900 dark:via-blue-700 dark:to-blue-900">
@@ -46,7 +48,10 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
               className="relative bg-white dark:bg-gray-900 rounded-full p-2 shadow-xl border-4 border-blue-400 dark:border-blue-600"
               style={{ width: iconSize + 16, height: iconSize + 16 }}
             >
-              <div className="relative" style={{ width: iconSize, height: iconSize }}>
+              <div
+                className="relative"
+                style={{ width: iconSize, height: iconSize }}
+              >
                 <Image
                   src={scrollIcon}
                   alt="Timeline progress"

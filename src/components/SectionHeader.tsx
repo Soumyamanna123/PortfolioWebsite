@@ -10,6 +10,7 @@ type SectionHeaderProps = {
   subtitle?: string;
   alignClasses?: string;
   justify?: "start" | "center" | "end";
+  className?: string; // 👈 added prop
 };
 
 const SectionHeader = ({
@@ -20,15 +21,17 @@ const SectionHeader = ({
   subtitle,
   alignClasses = "text-center",
   justify = "center",
+  className = "", // 👈 default empty
 }: SectionHeaderProps) => {
   const justifyClass = {
     start: "justify-start",
     center: "justify-center",
     end: "justify-end",
   }[justify];
+
   return (
     <div
-      className={`gap-4 pt-4 pb-8 md:pb-12 lg:pb-18 max-w-3xl mx-auto ${alignClasses}`}
+      className={`gap-4  max-w-3xl mx-auto ${alignClasses} ${className}`}
     >
       <motion.p
         className="text-xs md:text-sm uppercase tracking-widest text-gray-400 mb-4"

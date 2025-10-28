@@ -21,7 +21,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ item, index }) => {
   return (
     <motion.div
       key={index}
-      className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 rounded-2xl border border-[#C9E651]/30 bg-white dark:bg-black shadow-lg group"
+      className="flex-shrink-0 bg-[length:100%_100%] bg-no-repeat w-full md:w-1/2 lg:w-1/3 rounded-2xl border border-[#C9E651]/30 bg-white dark:bg-black shadow-lg group"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}

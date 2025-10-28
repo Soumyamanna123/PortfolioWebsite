@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { experiencedata } from "@/app/constant/data";
+import SectionHeader from "@/components/SectionHeader";
 
 interface ExperienceTimelinePreciseProps {
   scrollIcon?: string;
@@ -18,19 +19,28 @@ const ExperienceTimelinePrecise: React.FC<ExperienceTimelinePreciseProps> = ({
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.2", "end 0.8"],
+    offset: ["start 0.2", "end 0.3"],
   });
 
   const iconY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <div className="relative py-20">
-      <div ref={containerRef} className="relative space-y-16 min-h-[800px]">
+    <div className="relative py-20 max-w-7xl mx-auto">
+      <SectionHeader
+        sectionNumber="02"
+        title="The Experience"
+        sentence={["Experience", "that", "Brings", "Ideas", "To", "Life"]}
+        highlight={["Experience"]}
+        alignClasses="text-center "
+        justify="center"
+        className="pb-32"
+      />
+      <div ref={containerRef} className="relative space-y-16 min-h-[700px]">
         {/* Neon Timeline Bar */}
-        <div className="absolute top-0 bottom-0 left-[calc(33.333%-0.125rem)]">
+        <div className="absolute top-0 bottom-0 left-[calc(50.00%-0.125rem)]">
           {/* Outer glow */}
           <div className="absolute inset-0 w-2 bg-gradient-to-b from-cyan-500 via-blue-500 to-purple-600 blur-xl opacity-50" />
-          
+
           {/* Main bar with neon effect */}
           <div className="absolute inset-0 w-1 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-600 shadow-[0_0_20px_rgba(59,130,246,0.5)]" />
 
@@ -40,11 +50,11 @@ const ExperienceTimelinePrecise: React.FC<ExperienceTimelinePreciseProps> = ({
             className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
           >
             <div
-              className="relative rounded-full p-1 shadow-[0_0_30px_rgba(59,130,246,0.8)] border-2 border-cyan-400 bg-gradient-to-br from-cyan-400 to-blue-600"
-              style={{ width: iconSize + 16, height: iconSize + 16 }}
+              className="relative rounded-full  shadow-[0_0_30px_rgba(59,130,246,0.8)] "
+              style={{ width: iconSize, height: iconSize }}
             >
-              <div 
-                className="relative rounded-full overflow-hidden ring-2 ring-cyan-300/50" 
+              <div
+                className="relative rounded-full overflow-hidden "
                 style={{ width: iconSize, height: iconSize }}
               >
                 <Image
@@ -67,7 +77,7 @@ const ExperienceTimelinePrecise: React.FC<ExperienceTimelinePreciseProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="relative grid grid-cols-1 md:grid-cols-[33.333%_1fr] gap-6"
+            className="relative grid grid-cols-1 md:grid-cols-[47.00%_1fr] gap-6"
           >
             <div className="md:text-right md:pr-8">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -81,7 +91,7 @@ const ExperienceTimelinePrecise: React.FC<ExperienceTimelinePreciseProps> = ({
               </p>
             </div>
 
-            <div className="md:pl-8">
+            <div className="md:pl-24">
               <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-4">
                 {exp.description.map((item, i) => (
                   <li key={i} className="flex items-start gap-2">
@@ -108,6 +118,5 @@ const ExperienceTimelinePrecise: React.FC<ExperienceTimelinePreciseProps> = ({
     </div>
   );
 };
-
 
 export { ExperienceTimelinePrecise };

@@ -10,6 +10,8 @@ import FooterSection from "./FooterSection";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Image from "next/image";
 import RocketScrollToTop from "@/components/RocketScrollToTop";
+import { GlowingCircle } from "@/components/GlowingHalfCircle";
+import GradientText from "@/components/nurui/gradient-text";
 const currentYear = new Date().getFullYear();
 
 interface Section {
@@ -40,20 +42,38 @@ export default function HoverFooterPresenter({
   socialLinks,
 }: Props) {
   return (
-    <div className="bg-white dark:bg-black relative h-fit rounded-3xl overflow-hidden ">
-      <div className=" rocket-animation">
-        <RocketScrollToTop className=" bg-[var(--background-color)] max-w-24 mx-auto  rounded-full   hidden md:block" />
-      </div>
+    <div
+      className="bg-[var(--white-color)] 
+dark:bg-transparent 
+border-t 
+border-[var(--border-color)] 
+w-full 
+text-[var(--text-primary-color)] 
+rounded-tl-[50px] 
+rounded-tr-[50px] 
+lg:rounded-tl-[80px] 
+lg:rounded-tr-[80px] 
+xl:rounded-tl-[110px] 
+xl:rounded-tr-[110px] 
+rocket-animation
+
+"
+    >
+      <RocketScrollToTop className=" bg-[var(--background-color)] max-w-24 mx-auto  rounded-full   hidden md:block" />
+
       <MaxWidthWrapper>
-        <div className=" mx-auto py-14 z-40 relative">
+        <div className=" mx-auto py-6 z-40 relative">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 md:gap-8 lg:gap-16 pb-12">
             {/* Brand */}
             <div className="flex flex-col space-y-4 lg:col-span-3">
-              <div className="flex items-center space-x-2">
-                <span className="text-white text-3xl font-bold">
-                  {brand.name}
-                </span>
-              </div>
+              <GradientText
+                colors={["#C9E651", "#ffffff", "#C9E651"]}
+                animationSpeed={3}
+                className="text-3xl font-bold tracking-tight text-left"
+              >
+                {brand.name}
+              </GradientText>
+
               <p className="text-sm max-w-sm leading-relaxed">
                 {brand.description}
               </p>
@@ -109,7 +129,7 @@ export default function HoverFooterPresenter({
         </div>
       </MaxWidthWrapper>
 
-      <div className="lg:flex hidden h-[30rem]  -mt-32 -mb-36 ">
+      <div className="lg:flex hidden h-[30rem]   -mt-32 -mb-36 ">
         <TextHoverEffect text="developer" className="z-50" />
       </div>
 

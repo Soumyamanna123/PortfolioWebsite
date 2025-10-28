@@ -1,12 +1,13 @@
 "use client";
 
 import React from "react";
-import MaxWidthWrapper from "../components/MaxWidthWrapper";
+
 import AuthorCard from "../../components/AuthorCard";
 import Image from "next/image";
 import Link from "next/link";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import ContactForm from "../../components/ContactForm";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 const ContactPage = () => {
   return (
@@ -14,7 +15,7 @@ const ContactPage = () => {
       <MaxWidthWrapper>
         <div className="w-full flex flex-col lg:flex-row gap-4 lg:gap-8">
           <div className="lg:w-1/2  lg:sticky lg:top-32 self-start">
-            <p className="text-5xl text-center lg:text-left max-w-xl pb-10 mx-auto lg:text-left xl:text-7xl text-[#C9E651] font-sans font-medium">
+            <p className="text-5xl text-center lg:text-left max-w-xl pb-10 mx-auto  xl:text-7xl text-[#C9E651] font-sans font-medium">
               Let’s Get Acquainted
             </p>
             <div className="flex flex-col lg:flex-row items-center lg:items-start md:gap-4 ">

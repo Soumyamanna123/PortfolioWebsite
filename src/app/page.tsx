@@ -15,6 +15,7 @@ import ProjectsSection from "@/components/homepage/ProjectList";
 import Testimonials from "@/components/homepage/Testimonials";
 import Footer from "@/components/homepage/Footer";
 import NewFooter from "@/components/shared/footer/Footer";
+import BentoGridSection from "@/components/homepage/BentoGridSection";
 
 // Dynamically import sections
 // const NavBar = dynamic(() => import("./section/NavBar"));
@@ -75,8 +76,9 @@ export default function Home() {
           />
           <Hero />
           <About />
-          <SkillsSection />
+          {/* <SkillsSection /> */}
           {/* <Ribbon/> */}
+          <BentoGridSection/>
           <ProjectsSection />
           <Testimonials />
           <Footer />
