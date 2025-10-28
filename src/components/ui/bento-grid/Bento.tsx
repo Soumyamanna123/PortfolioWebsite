@@ -15,9 +15,8 @@ interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
   className?: string;
   background: ReactNode;
   description: string;
-  href: string;
+  href?: string;
   previewComponentName: string;
-
 }
 
 const BentoGrid = ({
@@ -77,13 +76,15 @@ const BentoCard = ({
         "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center px-4 py-6 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
       )}
     >
-      <Link
-        href={props?.href}
-        className="flex items-center text-sm pointer-events-auto hover:bg-[var(--glass-color-2)] p-2 rounded-xl"
-      >
-        <span>View</span>
-        <ArrowRightIcon className="ms-2 h-4 w-4" />
-      </Link>
+      {props.href && (
+        <Link
+          href={props.href}
+          className="flex items-center text-sm pointer-events-auto hover:bg-[var(--glass-color-2)] p-2 rounded-xl"
+        >
+          <span>View</span>
+          <ArrowRightIcon className="ms-2 h-4 w-4" />
+        </Link>
+      )}
     </div>
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
   </div>

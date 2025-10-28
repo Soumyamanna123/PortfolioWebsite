@@ -5,7 +5,9 @@ import { cn } from "@/lib/utils";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Ribbon from "./Ribbon";
 import About from "./About";
-import { TimezoneCard } from "../TimeZone";
+
+import { DARK_GLOBE_CONFIG, Globe } from "../ui/globe";
+import CopyEmail from "../CopyEmail";
 
 const files = [
   {
@@ -41,13 +43,11 @@ const featuresDataOne = [
     ),
   },
   {
-    name: "Marquee Testimonial",
-    description: "Smooth infinite testimonial scroll",
-    href: "/docs/marquee-testimonial",
+    name: "I am very Flexible with Timezone",
+    description: "US • UK • India",
+
     className: "col-span-full md:col-span-2 xl:col-span-1",
-    background: (
-     <TimezoneCard/>
-    ),
+    background: <Globe config={DARK_GLOBE_CONFIG} />,
   },
   {
     name: "Animated List",
@@ -57,15 +57,16 @@ const featuresDataOne = [
     background: <Ribbon />,
   },
   {
-    name: "Animated Progress",
-    description: "Displays a circular gauge with a percentage value",
+    name: "",
+    description: "",
     className: "col-span-full md:col-span-2 xl:col-span-1",
-    href: "/docs/progress-bar",
-    background: <About />,
+    
+    background: <CopyEmail/>,
   },
   {
     name: "The Inside Scoop",
-    description: "Currently building an EdTech platform to revolutionize learning",
+    description:
+      "Currently building an EdTech platform to revolutionize learning",
     className: "col-span-full md:col-span-2 xl:col-span-2",
     href: "/docs/terminal",
     background: (

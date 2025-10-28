@@ -5,7 +5,7 @@ interface IProps {
   features: {
     name: string;
     description: string;
-    href: string;
+    href?: string;
     previewComponentName: string;
     className?: string;
     background: React.JSX.Element;
