@@ -31,8 +31,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
-
 /* styles/globals.css */
 
 .animate-wave {
@@ -455,4 +453,9 @@ html {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
 }

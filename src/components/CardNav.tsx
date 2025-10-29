@@ -4,6 +4,7 @@ import { ArrowBigRight } from "lucide-react";
 import Link from "next/link";
 import { withMagnet } from "@/components/WithMagent";
 import ThemeToggle from "./ui/ThemeToggle";
+import { AnimatedThemeToggler } from "./ui/animated-theme-toggler";
 // use your own icon import if react-icons is not available
 
 type CardNavLink = {
@@ -209,7 +210,8 @@ const CardNav: React.FC<CardNavProps> = ({
             <MagnetLogo />
           </Link>
 
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
+          <AnimatedThemeToggler/>
         </div>
 
         <div
