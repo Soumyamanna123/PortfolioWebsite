@@ -3,28 +3,23 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
-import Preloader from "../components/PreLoader";
-import Ribbon from "../components/homepage/Ribbon";
-import { navItems } from "./constant/shared/navItems";
-import CardNav from "@/components/CardNav";
-import "../styles/footer.css"
-import Hero from "@/components/homepage/Hero";
-import About from "@/components/homepage/About";
-import SkillsSection from "@/components/homepage/MySkills";
-import ProjectsSection from "@/components/homepage/ProjectList";
-import Testimonials from "@/components/homepage/Testimonials";
-import Footer from "@/components/homepage/Footer";
-import NewFooter from "@/components/shared/footer/Footer";
-import BentoGridSection from "@/components/homepage/BentoGridSection";
+import { ReactLenis } from "lenis/react";
 
-// Dynamically import sections
-// const NavBar = dynamic(() => import("./section/NavBar"));
-// const Hero = dynamic(() => import("./section/Hero"));
-// const About = dynamic(() => import("../components/homepage/About"));
-// const SkillsSection = dynamic(() => import("./section/MySkills"));
-// const ProjectsSection = dynamic(() => import("./section/ProjectList"));
-// const Testimonials = dynamic(() => import("./section/Testimonials"));
-// const Footer = dynamic(() => import("../components/homepage/Footer"));
+import Preloader from "../components/PreLoader";
+import CardNav from "@/components/CardNav";
+import { navItems } from "./constant/shared/navItems";
+import Beams from "@/components/Beams";
+
+import "../styles/footer.css";
+import Hero from "@/components/homepage/Hero";
+
+// ✅ Lazy-load heavy sections
+const About = dynamic(() => import("@/components/homepage/About"));
+const BentoGridSection = dynamic(() => import("@/components/homepage/BentoGridSection"));
+const ProjectsSection = dynamic(() => import("@/components/homepage/ProjectList"));
+const Testimonials = dynamic(() => import("@/components/homepage/Testimonials"));
+const Footer = dynamic(() => import("@/components/homepage/Footer"));
+const NewFooter = dynamic(() => import("@/components/shared/footer/Footer"));
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -32,57 +27,76 @@ export default function Home() {
 
   // Lock scroll during preloader
   useEffect(() => {
-    document.body.style.overflow = isLoading ? "hidden" : "auto";
+    document.body.style.overflow = isLoading ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isLoading]);
 
   // Scroll to section after preloader
   useEffect(() => {
-    const scrollTo = searchParams.get("scrollTo");
-    if (scrollTo && !isLoading) {
-      const el = document.getElementById(scrollTo);
-      if (el) {
-        const yOffset = -80; // adjust for sticky navbar
-        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        setTimeout(() => {
-          window.scrollTo({ top: y, behavior: "smooth" });
-          window.history.replaceState(null, "", "/"); // clean URL
-        }, 100); // short delay to ensure DOM is ready
-      }
+    if (isLoading) return;
+    const targetId = searchParams.get("scrollTo");
+    if (!targetId) return;
+
+    const section = document.getElementById(targetId);
+    if (section) {
+      const offset = -80;
+      const y = section.getBoundingClientRect().top + window.scrollY + offset;
+      setTimeout(() => {
+        window.scrollTo({ top: y, behavior: "smooth" });
+        window.history.replaceState(null, "", "/");
+      }, 200);
     }
-  }, [searchParams, isLoading]);
+  }, [isLoading, searchParams]);
 
   return (
     <>
-      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
-      {!isLoading && (
+      {isLoading ? (
+        <Preloader onComplete={() => setIsLoading(false)} />
+      ) : (
         <main>
-          {/* <NavBar /> */}
-          <CardNav
-            // logo={logo}
-            logoAlt="Company Logo"
-            items={navItems}
-            baseColor="#000"
-            menuColor="#C9E651"
-            buttonBgColor="#111"
-            buttonTextColor="#fff"
-            ease="power3.out"
-            className=" backdrop-blur-3xl 
-  backdrop-saturate-150 
- bg-white dark:bg-[rgba(17,25,40,0.75)] 
-  rounded-[12px] 
-  border 
-  border-[rgba(255,255,255,0.125)]
-"
-          />
-          <Hero />
-          <About />
-          {/* <SkillsSection /> */}
-          {/* <Ribbon/> */}
-          <BentoGridSection/>
-          <ProjectsSection />
-          <Testimonials />
-          <Footer />
-          <NewFooter/>
+          <ReactLenis
+            root
+            options={{
+              lerp: 0.1,
+              smoothWheel: true,
+              duration: 1.2,
+            }}
+          >
+            <CardNav
+              logoAlt="Company Logo"
+              items={navItems}
+              baseColor="#000"
+              menuColor="#C9E651"
+              buttonBgColor="#111"
+              buttonTextColor="#fff"
+              ease="power3.out"
+              className="backdrop-blur-3xl backdrop-saturate-150 bg-white dark:bg-[rgba(17,25,40,0.75)] rounded-[12px] border border-[rgba(255,255,255,0.125)]"
+            />
+{/* 
+            <div className="relative w-full h-[600px]">
+              <Beams
+                beamWidth={21}
+                beamHeight={15}
+                beamNumber={12}
+                lightColor="#C9E651"
+                speed={2}
+                noiseIntensity={1.75}
+                scale={0.2}
+                rotation={30}
+              />
+              fbhkfb
+            </div> */}
+            <Hero/>
+
+            <About />
+            <BentoGridSection />
+            <ProjectsSection />
+            <Testimonials />
+            <Footer />
+            <NewFooter />
+          </ReactLenis>
         </main>
       )}
     </>

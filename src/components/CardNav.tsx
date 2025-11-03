@@ -5,6 +5,7 @@ import Link from "next/link";
 import { withMagnet } from "@/components/WithMagent";
 import ThemeToggle from "./ui/ThemeToggle";
 import { AnimatedThemeToggler } from "./ui/animated-theme-toggler";
+import SearchTrigger from "./search/SearchTrigger";
 // use your own icon import if react-icons is not available
 
 type CardNavLink = {
@@ -212,6 +213,7 @@ const CardNav: React.FC<CardNavProps> = ({
 
           {/* <ThemeToggle /> */}
           <AnimatedThemeToggler/>
+          <SearchTrigger/>
         </div>
 
         <div

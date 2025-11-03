@@ -1,27 +1,27 @@
 "use client";
 
 import React, { useRef } from "react";
-
+import { motion } from "framer-motion";
 import { gsap } from "gsap";
-
-import Spline from "@splinetool/react-spline";
-import { ChevronDown } from "lucide-react";
 import { useGSAP } from "@gsap/react";
-
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
+
 import { GlowingCircle } from "../GlowingHalfCircle";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import { words } from "@/app/constant/data";
+import Beams from "../Beams"; // ✅ import your Beams background
 
 const Hero = () => {
   const sectionRef = useRef(null);
 
+  // 🌟 Animations
   useGSAP(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".intro-name",
         { x: 50, opacity: 0 },
-        { x: 0, opacity: 1, duration: 1, delay: 0.6 }
+        { x: 0, opacity: 1, duration: 1, delay: 0.6, ease: "power2.out" }
       );
 
       gsap.fromTo(
@@ -40,7 +40,7 @@ const Hero = () => {
       gsap.fromTo(
         ".scroll-indicator",
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, delay: 1.2 }
+        { y: 0, opacity: 1, duration: 1, delay: 1.2, ease: "power1.out" }
       );
     }, sectionRef);
 
@@ -50,14 +50,23 @@ const Hero = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen overflow-hidden bg-white dark:bg-black "
+      className="relative min-h-screen overflow-hidden bg-white dark:bg-black"
     >
-      {/* === 🌌 Spline Background === */}
-      <div className="absolute inset-0 z-0 dark:opacity-60">
-        <Spline scene="https://prod.spline.design/UF-WfwoDAcdInf2L/scene.splinecode" />
+      {/* === 🌌 Beams Background === */}
+      <div className="absolute inset-0 z-0">
+        <Beams
+          beamWidth={6}
+          beamHeight={25}
+          beamNumber={6}
+         lightColor="#5EB553"
+          speed={2}
+          noiseIntensity={1.75}
+          scale={0.2}
+          rotation={45}
+        />
       </div>
 
-      {/* === 🌕 Glowing Circle Overlay (optional aesthetic) === */}
+      {/* === 🌕 Glowing Circle Overlay === */}
       <div className="absolute inset-0 z-[1] pointer-events-none mix-blend-screen">
         <GlowingCircle
           size={600}
@@ -69,23 +78,25 @@ const Hero = () => {
 
       {/* === 🧠 Foreground Content === */}
       <div
-        className="relative  z-[2] flex pt-40 items-center justify-center h-screen text-center text-white pointer-events-none "
+        className="relative z-[2] flex pt-40 items-center justify-center h-screen text-center text-white"
         style={{ pointerEvents: "auto" }}
       >
         <MaxWidthWrapper>
-          <p className="text-sm md:text-md text-white/70 font-sans text-center pb-2 ">
+          <p className="text-sm md:text-md text-white/70 font-sans text-center pb-2">
             <span className="inline-block animate-wave origin-[70%_70%]">
               👋🏻
             </span>{" "}
             Nice to meet you — I'm
           </p>
 
+          {/* === Name === */}
           <div className="text-center intro-name leading-[1.1] py-8 2xl:py-12">
             <h1 className="text-[40px] sm:text-[90px] md:text-[120px] lg:text-[150px] tracking-tighter font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#C9E651] to-[#000000] transform scale-y-300 md:scale-y-150 2xl:scale-y-200">
               SOUMYA MANNA
             </h1>
           </div>
 
+          {/* === Dynamic Word Animation === */}
           <div className="hero-text font-sans text-center overflow-hidden pt-2 pb-6 text-black dark:text-white/90">
             <p className="text-lg md:text-3xl lg:text-3xl flex items-center justify-center flex-wrap gap-2 whitespace-nowrap">
               <span className="[font-family:var(--font-carattere)] italic text-[#9ACD32] dark:text-[#C9E651]">
@@ -125,6 +136,7 @@ const Hero = () => {
             </p>
           </div>
 
+          {/* === Scroll Indicator === */}
           <div className="text-sm text-white/60 flex items-center justify-center mx-auto mt-10 scroll-indicator">
             <Link href="#about" scroll={true}>
               <div className="border border-[#528400] rounded-full animate-bounce p-1 cursor-pointer">
