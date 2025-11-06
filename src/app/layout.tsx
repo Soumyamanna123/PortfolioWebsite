@@ -1,7 +1,7 @@
 // app/layout.tsx
 
 import type { Metadata } from "next";
-import { Inter, Calistoga, Carattere } from "next/font/google";
+import { Inter, Calistoga, Carattere, Darker_Grotesque } from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import { ThemeProvider } from "next-themes";
@@ -18,6 +18,12 @@ const carattere = Carattere({
   subsets: ["latin"],
   variable: "--font-carattere",
   weight: ["400"],
+});
+
+const darkerGrotesque = Darker_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-darker-grotesque",
+  weight: ["300", "400", "500", "600", "700", "800", "900"], // available weights
 });
 
 export const metadata: Metadata = {
@@ -37,6 +43,7 @@ export default function RootLayout({
           inter.variable,
           calistoga.variable,
           carattere.variable,
+          darkerGrotesque.variable,
           "bg-white text-black dark:bg-[#000000] dark:text-white font-sans antialiased"
         )}
       >

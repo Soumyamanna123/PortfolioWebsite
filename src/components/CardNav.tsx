@@ -212,7 +212,7 @@ const CardNav: React.FC<CardNavProps> = ({
           </Link>
 
           {/* <ThemeToggle /> */}
-          <AnimatedThemeToggler/>
+          {/* <AnimatedThemeToggler/> */}
           <SearchTrigger/>
         </div>
 
