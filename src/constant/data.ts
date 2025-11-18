@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Code, Github, Layers, Lightbulb, Linkedin, Mail, Palette, Twitter } from "lucide-react";
 
 export interface Experience {
   role: string;
@@ -21,14 +21,14 @@ export const navLinks = [
 ];
 
 export const words = [
-  { text: "Ideas", imgPath: "/images/ideas.svg", id: "1" },
-  { text: "Concepts", imgPath: "/images/concepts.svg", id: "2" },
-  { text: "Designs", imgPath: "/images/designs.svg", id: "3" },
-  { text: "Code", imgPath: "/images/code.svg", id: "4" },
-  { text: "Ideas", imgPath: "/images/ideas.svg", id: "5" },
-  { text: "Concepts", imgPath: "/images/concepts.svg", id: "6" },
-  { text: "Designs", imgPath: "/images/designs.svg", id: "7" },
-  { text: "Code", imgPath: "/images/code.svg", id: "8" },
+  { text: "Ideas", icon: Lightbulb, id: "1" },
+  { text: "Concepts", icon: Layers, id: "2" },
+  { text: "Designs", icon: Palette, id: "3" },
+  { text: "Code", icon: Code, id: "4" },
+  { text: "Ideas", icon: Lightbulb, id: "5" },
+  { text: "Concepts", icon: Layers, id: "6" },
+  { text: "Designs", icon: Palette, id: "7" },
+  { text: "Code", icon: Code, id: "8" },
 ];
 
 export interface SocialLink {
@@ -96,35 +96,35 @@ export const testimonials = [
     name: "Arya Majumdar",
     position: "Senior UI/UX Designr",
     text: "Working with Soumya has been one of those genuinely smooth and stress-free experiences you wish you had on every project. As a designer, you often worry about how your vision will translate once it goes into development, but with Soumya, that worry never existed.He just gets it. He listens, pays attention to the little design details, and genuinely cares about making things look and feel right. What I really appreciate is how open he is to feedback, how quick he is to respond, and how calm he stays even when things get challenging. It always felt like we were working toward the same goal, not just in roles but in mindset. He’s thoughtful, collaborative, and incredibly easy to work with. I’d be happy to collaborate with him again anytime.",
-    avatar: "images/assets/soumya-manna.png",
+    avatar: "/images/assets/soumya-manna.png",
     linkedin: "https://www.linkedin.com/in/username/",
   },
   {
     name: "Olivia Green",
     position: "Head of Design @ GreenLeaf",
     text: "Working with Alex was a pleasure. His expertise in frontend development brought our designs to life in a way we never imagined. The website has exceeded our expectations.",
-    avatar: "images/assets/swap_2025-06-13_15-01-55.png",
+    avatar: "/images/assets/swap_2025-06-13_15-01-55.png",
     linkedin: "https://www.linkedin.com/in/username/",
   },
   {
     name: "Daniel White",
     position: "CEO @ InnovateCo",
     text: "Alex's ability to create seamless user experiences is unmatched. Our website has seen a significant increase in conversions since launching the new design. We couldn't be happier.",
-    avatar: "images/assets/soumya-manna.png",
+    avatar: "/images/soumya-manna.webp",
     linkedin: "https://www.linkedin.com/in/username/",
   },
   {
     name: "Abhishek Das",
     position: "Senior Software Engineer",
     text: "I highly recommend Soumya Manna. He is polite, attentive, and always eager to learn. Soumya has shown solid knowledge in frontend development, especially with React, Next.js, and Tailwind. He follows best practices, writes clean code, and is a reliable team player. His understanding of web development, API integration, Node.js, and Git is commendable. His positive attitude and dedication make him a great asset to any team.",
-    avatar: "images/assets/swap_2025-06-13_15-01-55.png",
+    avatar: "/images/soumya-manna.webp",
     linkedin: "https://www.linkedin.com/in/username/",
   },
   {
     name: "Michael Brown",
     position: "Director of IT @ MegaCorp",
     text: "Alex's work on our website has been nothing short of exceptional. He's a talented developer who is also a great communicator. We highly recommend him.",
-    avatar: "images/assets/soumya-manna.png",
+    avatar: "/images/soumya-manna.webp",
     linkedin: "https://www.linkedin.com/in/username/",
   },
 ];

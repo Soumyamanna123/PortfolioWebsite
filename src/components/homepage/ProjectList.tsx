@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import SectionHeader from "../SectionHeader";
 import ProjectCard from "../ProjectCard";
-import { projects, ProjectsSectionProps } from "@/app/constant/projectdetails/projectdata";
+import { projects, ProjectsSectionProps } from "@/constant/projectdetails/projectdata";
+
 const sentence = ["Built with", "Passion & Code"];
 
 export default function ProjectsSection({ maxItems }: ProjectsSectionProps) {

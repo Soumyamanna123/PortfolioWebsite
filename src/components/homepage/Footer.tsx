@@ -101,7 +101,7 @@ const Footer = () => {
     >
       <MaxWidthWrapper>
         {/* Freelance Banner */}
-        <div className="flex flex-col md:flex-row justify-between py-10">
+        {/* <div className="flex flex-col md:flex-row justify-between py-10">
           <div className="text-center footer-heading">
             <h2 className="text-3xl font-semibold font-sans flex justify-center items-center gap-2">
               Available for
@@ -112,7 +112,7 @@ const Footer = () => {
           </div>
 
 
-        </div>
+        </div> */}
 
         {/* Content Section */}
         <div className="py-10">

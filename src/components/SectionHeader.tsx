@@ -62,7 +62,7 @@ const SectionHeader = ({
                 type: "spring",
                 stiffness: 100,
               }}
-              className={`transition-colors duration-300 ${
+              className={`transition-colors [font-family:var(--font-syne)] duration-300 ${
                 isHighlight ? "text-[#C9E651] font-normal" : ""
               }`}
             >

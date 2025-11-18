@@ -5,7 +5,8 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { withMagnet } from "../WithMagent";
 import MaxWidthWrapper from "../MaxWidthWrapper";
-import { navLinks } from "@/app/constant/data";
+import { navLinks } from "@/constant/data";
+
 
 
 const NavBar = () => {

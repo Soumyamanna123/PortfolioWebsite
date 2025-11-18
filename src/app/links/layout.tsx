@@ -2,7 +2,9 @@
 
 import CardNav from "@/components/CardNav";
 import Footer from "@/components/homepage/Footer";
-import { navItems } from "../constant/shared/navItems";
+import { FooterSection } from "@/components/shared/footersection/components/Footer";
+import { navItems } from "@/constant/shared/navItems";
+
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -25,7 +27,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 "
       />
       {children}
-      <Footer />
+  <FooterSection/>
     </>
   );
 }

@@ -1,8 +1,7 @@
-// src/components/TestimonialCard.tsx
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
+import Image from "next/image";
 
 type Testimonial = {
   name: string;
@@ -28,27 +27,34 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ item, index }) => {
     >
       <div className="relative p-6 rounded-lg overflow-hidden min-w-[280px]">
         {/* Decorative Quote Icon */}
-        <img
-          src="/images/assets/quote4.svg"
-          alt=""
-          className="absolute top-0 right-0 h-48 w-48 opacity-10 dark:opacity-20 group-hover:opacity-70 transition-opacity duration-300 -translate-y-1/3 translate-x-1/12 -rotate-180"
-        />
+        <div className="absolute top-0 right-0 h-48 w-48 opacity-10 dark:opacity-20 group-hover:opacity-70 transition-opacity duration-300 -translate-y-1/3 translate-x-1/12 -rotate-180 pointer-events-none">
+          <Image
+            src="/images/assets/quote4.svg"
+            alt=""
+            layout="fill"
+            objectFit="contain"
+            priority={false}
+            draggable={false}
+          />
+        </div>
 
         {/* User Info */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-4">
-            <img
-              src={item.avatar}
-              alt={item.name}
-              className="w-12 h-12 rounded-full object-cover"
-            />
+            <div className="relative w-12 h-12 rounded-full overflow-hidden">
+              <Image
+                src={item.avatar}
+                alt={item.name}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-full"
+              />
+            </div>
             <div>
               <p className="font-semibold text-xl text-black dark:text-white leading-tight">
                 {item.name}
               </p>
-              <p className="text-xs text-[#C9E651] leading-tight">
-                {item.position}
-              </p>
+              <p className="text-xs text-[#C9E651] leading-tight">{item.position}</p>
             </div>
           </div>
 
@@ -65,9 +71,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ item, index }) => {
         </div>
 
         {/* Testimonial Text */}
-        <p className="text-md text-gray-700 dark:text-white/80">
-          {item.text}
-        </p>
+        <p className="text-md text-gray-700 dark:text-white/80">{item.text}</p>
       </div>
     </motion.div>
   );

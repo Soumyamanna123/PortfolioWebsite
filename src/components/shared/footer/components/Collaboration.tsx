@@ -26,11 +26,11 @@ export default function Collaboration() {
   }, [wordProgress]);
 
   return (
-    <section className="py-20 bg-black text-center">
+    <section className="py-32 bg-black text-center">
         
       <div className="container mx-auto">
         <div className="sticky top-40">
-          <p className="text-3xl sm:text-5xl lg:text-7xl font-medium leading-tight font-sans">
+          <p className="text-3xl sm:text-5xl lg:text-7xl font-medium leading-tight [font-family:var(--font-syne)]">
             {words.map((word, index) => (
               <span
                 key={index}
@@ -47,7 +47,7 @@ export default function Collaboration() {
         </div>
 
         {/* Spacer for scrolling */}
-        <div className="h-[200vh]" ref={scrollRef}></div>
+        <div className="h-[380vh] 2xl:h-[520vh]" ref={scrollRef}></div>
       </div>
     </section>
   );

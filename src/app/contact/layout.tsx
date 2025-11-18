@@ -2,7 +2,8 @@
 
 import CardNav from "@/components/CardNav";
 import Footer from "@/components/homepage/Footer";
-import { navItems } from "../constant/shared/navItems";
+import { navItems } from "@/constant/shared/navItems";
+
 
 
 export default function Layout({ children }: { children: React.ReactNode }) {

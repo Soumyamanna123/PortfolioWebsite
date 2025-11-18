@@ -2,8 +2,10 @@
 
 import { useState, useEffect, useMemo, useRef } from 'react';
 import Fuse from 'fuse.js';
-import { portfolioData, SearchableItem } from '@/app/constant/portfolio';
+
 import Link from 'next/link';
+import { portfolioData, SearchableItem } from '@/constant/portfolio';
+
 
 
 interface SearchModalProps {
@@ -95,7 +97,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[10vh] px-4">
       {/* Backdrop */}
       <div 
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        className=""
         onClick={onClose}
       />
       

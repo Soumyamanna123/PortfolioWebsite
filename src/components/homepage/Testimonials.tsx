@@ -5,8 +5,10 @@ import { useAnimationFrame } from "framer-motion";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import SectionHeader from "../SectionHeader";
 import TestimonialCard from "../TestimonialCard";
-import { testimonials } from "@/app/constant/data";
+
 import { GradientLight } from "../GradientLight";
+import { testimonials } from "@/constant/data";
+
 
 const sentence = ["Don’t take my word for it", "*"];
 

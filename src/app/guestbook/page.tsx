@@ -1,9 +1,36 @@
-import React from 'react'
+import HeroSection from "@/components/homepage/HeroSection";
+import React from "react";
+import { PinnedMessage } from "./components/PinnedMessage";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import GuestbookHeader from "./components/GuestbookHeader";
 
 const page = () => {
   return (
-    <div>page</div>
-  )
-}
+    <div>
+      {" "}
+      <HeroSection
+        backgroundImage="/images/assets/paper-texture-optmized.webp"
+        height="600px"
+        overlayOpacity={0.2}
+        contentOverlap="500px" // Adjust this value
+        className="opacity-30"
+      />
+      <MaxWidthWrapper>
+        
+        <GuestbookHeader />
+        <PinnedMessage />
+        {/* {!isSignedIn ? (
+        <div className="max-w-4xl mx-auto px-6 py-8 text-center">
+          <SignInButton onClick={handleSignIn} />
+        </div>
+      ) : (
+        <EntryForm onSubmit={handleSubmit} />
+      )} */}
 
-export default page
+        {/* <EntryList entries={entries} /> */}
+      </MaxWidthWrapper>
+    </div>
+  );
+};
+
+export default page;
