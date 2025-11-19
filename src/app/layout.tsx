@@ -11,6 +11,7 @@ import {
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import { ThemeProvider } from "next-themes";
+import ToastProvider from "@/components/providers/ToastProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -61,6 +62,7 @@ export default function RootLayout({
           "bg-white text-black dark:bg-[#000000] dark:text-white font-sans antialiased"
         )}
       >
+        <ToastProvider />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>

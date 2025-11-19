@@ -9,7 +9,6 @@ interface GuestbookEntry {
   isPinned: boolean;
 }
 
-
 export const EntryCard = ({ entry }: { entry: GuestbookEntry }) => {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -32,20 +31,18 @@ export const EntryCard = ({ entry }: { entry: GuestbookEntry }) => {
             {entry.name.charAt(0).toUpperCase()}
           </div>
         </div>
-        
+
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
             <h3 className="text-white font-semibold text-lg">{entry.name}</h3>
           </div>
-          
+
           <p className="text-gray-400 text-sm mb-3 flex items-center gap-1">
             <Calendar className="w-3 h-3" />
             {formatDate(entry.createdAt)}
           </p>
-          
-          <p className="text-gray-300 leading-relaxed">
-            {entry.message}
-          </p>
+
+          <p className="text-gray-300 leading-relaxed">{entry.message}</p>
         </div>
       </div>
     </div>

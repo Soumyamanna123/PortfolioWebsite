@@ -3,8 +3,9 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { experiencedata } from "@/app/constant/data";
+
 import SectionHeader from "@/components/SectionHeader";
+import { experiencedata } from "@/constant/data";
 
 interface ExperienceTimelinePreciseProps {
   scrollIcon?: string;

@@ -10,9 +10,9 @@ export const FooterBrand = () => {
         </div>
        
       </Link>
-      {/* <p className="text-gray-400 text-sm">
-        © copyright DevStudios 2024. All rights reserved.
-      </p> */}
+      <p className=" text-sm max-w-md">
+        I'm Soumya - a full-stack developer, freelancer & problem solver. Thanks for checking out my site!
+      </p>
     </div>
   );
 };
